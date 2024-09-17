@@ -490,6 +490,7 @@
 					<Input
 						type="text"
 						id="country"
+						name="country"
 						bind:value={country}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
