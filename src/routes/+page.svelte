@@ -5,10 +5,11 @@
 
 	import units from '$lib/data/units.js'
 
+	let shape = ''
+	let unit = ''
 	let length = ''
 	let width = ''
 	let height = ''
-	let shape = ''
 	let waterType = ''
 	let fishBehavior = ''
 	let fishSize = ''
@@ -147,6 +148,7 @@
 								<Select.Item value={shape.value}>{shape.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="shape" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -162,6 +164,7 @@
 								<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="unit" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -219,6 +222,7 @@
 								>
 							{/each}
 						</Select.Content>
+						<Select.Input name="fishBehavior" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -234,6 +238,7 @@
 								<Select.Item value={fishSize.value}>{fishSize.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="fishSize" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -250,6 +255,7 @@
 								<Select.Item value={level.value}>{level.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="experienceLevel" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -270,6 +276,7 @@
 								<Select.Item value={waterType.value}>{waterType.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="waterType" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -285,6 +292,7 @@
 								<Select.Item value={source.value}>{source.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="waterSource" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -312,6 +320,7 @@
 								<Select.Item value={level.value}>{level.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="waterHardness" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -334,6 +343,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="filterType" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -349,6 +359,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="lightingType" />
 					</Select.Root>
 				</div>
 				<div class="flex items-center mb-4">
@@ -356,6 +367,7 @@
 						<Input
 							type="checkbox"
 							id="aquarium-heater"
+							name="aquarium-heater"
 							bind:checked={aquariumHeater}
 							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
 						/>
@@ -373,6 +385,7 @@
 						<Input
 							type="checkbox"
 							id="water-pump"
+							name="water-pump"
 							bind:checked={waterPump}
 							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
 						/>
@@ -407,6 +420,7 @@
 								<Select.Item value={frequency.value}>{frequency.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="maintenanceFrequency" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -422,6 +436,7 @@
 								<Select.Item value={option.value}>{option.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="waterChange" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -436,6 +451,7 @@
 						<Input
 							type="checkbox"
 							id="live-plants"
+							name="live-plants"
 							bind:checked={livePlants}
 							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
 						/>
@@ -461,6 +477,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="plantType" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -476,6 +493,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="substrateType" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -519,6 +537,7 @@
 								<Select.Item value={budget.value}>{budget.label}</Select.Item>
 							{/each}
 						</Select.Content>
+						<Select.Input name="budget" />
 					</Select.Root>
 				</div>
 			</fieldset>
