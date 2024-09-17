@@ -15,7 +15,7 @@
 	let experienceLevel = ''
 	let bioloadLevel = ''
 	let waterSource = ''
-	let targetPh = ''
+	let targetPh = '6.8'
 	let waterHardness = ''
 	let filterType = ''
 	let lightingType = ''
@@ -26,7 +26,6 @@
 	let livePlants = false
 	let plantType = ''
 	let substrateType = ''
-	let decorPreference = ''
 	let country = ''
 	let region = ''
 	let budget = ''
@@ -40,31 +39,28 @@
 	const waterTypes = [
 		{ value: 'freshwater', label: 'Freshwater' },
 		{ value: 'saltwater', label: 'Saltwater' },
-		{ value: 'brackish', label: 'Brackish' },
+		{ value: 'any', label: 'Any' },
 	]
 
 	const fishBehaviors = [
 		{ value: 'peaceful', label: 'Peaceful' },
 		{ value: 'semiAggressive', label: 'Semi-Aggressive' },
 		{ value: 'aggressive', label: 'Aggressive' },
+		{ value: 'any', label: 'Any' },
 	]
 
 	const fishSizes = [
 		{ value: 'small', label: 'Small' },
 		{ value: 'medium', label: 'Medium' },
 		{ value: 'large', label: 'Large' },
+		{ value: 'any', label: 'Any' },
 	]
 
 	const experienceLevels = [
 		{ value: 'beginner', label: 'Beginner' },
 		{ value: 'intermediate', label: 'Intermediate' },
 		{ value: 'expert', label: 'Expert' },
-	]
-
-	const bioloadLevels = [
-		{ value: 'low', label: 'Low' },
-		{ value: 'medium', label: 'Medium' },
-		{ value: 'high', label: 'High' },
+		{ value: 'any', label: 'Any' },
 	]
 
 	const waterSources = [
@@ -116,11 +112,6 @@
 		{ value: 'aquasoil', label: 'Aquasoil' },
 	]
 
-	const decorPreferences = [
-		{ value: 'natural', label: 'Natural' },
-		{ value: 'artificial', label: 'Artificial' },
-	]
-
 	const budgets = [
 		{ value: 'low', label: 'Low' },
 		{ value: 'medium', label: 'Medium' },
@@ -129,13 +120,17 @@
 </script>
 
 <svelte:head>
-	<title>Aquarium Planner AI</title>
+	<title>AquaPlanner</title>
 </svelte:head>
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-	<div class="max-w-3xl mx-auto">
+	<div class="max-w-2xl mx-auto">
 		<h1 class="text-3xl font-bold text-center text-teal-800 mb-8">Aquarium Planner AI</h1>
-		<form>
+		<p class="mb-12">
+			Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it
+			easy to create the perfect tank for your aquatic buddies.
+		</p>
+		<form method="post" action="/result">
 			<!-- Tank Dimensions Fieldset -->
 			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Dimensions</legend>
@@ -178,7 +173,6 @@
 						id="length"
 						bind:value={length}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-						required
 					/>
 				</div>
 				<div class="mb-4">
@@ -190,7 +184,6 @@
 						id="width"
 						bind:value={width}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-						required
 					/>
 				</div>
 				<div class="mb-4">
@@ -202,28 +195,7 @@
 						id="height"
 						bind:value={height}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-						required
 					/>
-				</div>
-			</fieldset>
-
-			<!-- Water Type Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
-				<legend class="text-lg font-semibold text-teal-700 px-2">Water Type</legend>
-				<div class="mb-4">
-					<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
-						>Water Type</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Water Type" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each waterTypes as waterType}
-								<Select.Item value={waterType.value}>{waterType.label}</Select.Item>
-							{/each}
-						</Select.Content>
-					</Select.Root>
 				</div>
 			</fieldset>
 
@@ -280,26 +252,26 @@
 						</Select.Content>
 					</Select.Root>
 				</div>
-				<div class="mb-4">
-					<label for="bioload-level" class="block text-sm font-medium text-gray-700 mb-2"
-						>Bioload Level</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Bioload Level" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each bioloadLevels as level}
-								<Select.Item value={level.value}>{level.label}</Select.Item>
-							{/each}
-						</Select.Content>
-					</Select.Root>
-				</div>
 			</fieldset>
 
 			<!-- Water Chemistry Fieldset -->
 			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Water Chemistry</legend>
+				<div class="mb-4">
+					<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
+						>Water Type</label
+					>
+					<Select.Root>
+						<Select.Trigger>
+							<Select.Value placeholder="Water Type" />
+						</Select.Trigger>
+						<Select.Content>
+							{#each waterTypes as waterType}
+								<Select.Item value={waterType.value}>{waterType.label}</Select.Item>
+							{/each}
+						</Select.Content>
+					</Select.Root>
+				</div>
 				<div class="mb-4">
 					<label for="water-source" class="block text-sm font-medium text-gray-700 mb-2"
 						>Water Source</label
@@ -321,6 +293,7 @@
 					>
 					<Input
 						type="number"
+						step="0.01"
 						id="target-ph"
 						bind:value={targetPh}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
@@ -501,24 +474,6 @@
 						<Select.Content>
 							{#each substrateTypes as type}
 								<Select.Item value={type.value}>{type.label}</Select.Item>
-							{/each}
-						</Select.Content>
-					</Select.Root>
-				</div>
-				<div class="mb-4">
-					<label
-						for="decor-preference"
-						class="block text-sm font-medium text-gray-700 mb-2">Decor Preference</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Decor Preference" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each decorPreferences as preference}
-								<Select.Item value={preference.value}
-									>{preference.label}</Select.Item
-								>
 							{/each}
 						</Select.Content>
 					</Select.Root>
