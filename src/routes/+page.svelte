@@ -148,7 +148,7 @@
 								<Select.Item value={shape.value}>{shape.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="shape" />
+						<Select.Input name="shape" id="shape" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -164,7 +164,7 @@
 								<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="unit" />
+						<Select.Input name="unit" id="unit" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -174,6 +174,7 @@
 					<Input
 						type="number"
 						id="length"
+						name="length"
 						bind:value={length}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -185,6 +186,7 @@
 					<Input
 						type="number"
 						id="width"
+						name="width"
 						bind:value={width}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -196,6 +198,7 @@
 					<Input
 						type="number"
 						id="height"
+						name="height"
 						bind:value={height}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -222,7 +225,7 @@
 								>
 							{/each}
 						</Select.Content>
-						<Select.Input name="fishBehavior" />
+						<Select.Input name="fish-behavior" id="fish-behavior" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -238,7 +241,7 @@
 								<Select.Item value={fishSize.value}>{fishSize.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="fishSize" />
+						<Select.Input name="fish-size" id="fish-size" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -255,7 +258,7 @@
 								<Select.Item value={level.value}>{level.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="experienceLevel" />
+						<Select.Input name="experience-level" id="experience-level" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -276,7 +279,7 @@
 								<Select.Item value={waterType.value}>{waterType.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="waterType" />
+						<Select.Input name="water-type" id="water-type" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -292,7 +295,7 @@
 								<Select.Item value={source.value}>{source.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="waterSource" />
+						<Select.Input name="water-source" id="water-source" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -303,6 +306,7 @@
 						type="number"
 						step="0.01"
 						id="target-ph"
+						name="target-ph"
 						bind:value={targetPh}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -320,7 +324,7 @@
 								<Select.Item value={level.value}>{level.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="waterHardness" />
+						<Select.Input name="water-hardness" id="water-hardness" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -343,7 +347,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="filterType" />
+						<Select.Input name="filter-type" id="filter-type" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -359,7 +363,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="lightingType" />
+						<Select.Input name="lighting-type" id="lighting-type" />
 					</Select.Root>
 				</div>
 				<div class="flex items-center mb-4">
@@ -369,6 +373,7 @@
 							id="aquarium-heater"
 							name="aquarium-heater"
 							bind:checked={aquariumHeater}
+							value="true"
 							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
@@ -387,6 +392,7 @@
 							id="water-pump"
 							name="water-pump"
 							bind:checked={waterPump}
+							value="true"
 							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
@@ -420,7 +426,7 @@
 								<Select.Item value={frequency.value}>{frequency.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="maintenanceFrequency" />
+						<Select.Input name="maintenance-frequency" id="maintenance-frequency" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -436,7 +442,7 @@
 								<Select.Item value={option.value}>{option.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="waterChange" />
+						<Select.Input name="water-change" id="water-change" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -453,12 +459,14 @@
 							id="live-plants"
 							name="live-plants"
 							bind:checked={livePlants}
+							value="true"
 							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
 							id="live-plants-label"
 							for="live-plants"
-							class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+							class="text-sm font-medium leading-none 
+							peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 						>
 							Live Plants
 						</Label>
@@ -477,7 +485,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="plantType" />
+						<Select.Input name="plant-type" id="plant-type" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
@@ -493,7 +501,7 @@
 								<Select.Item value={type.value}>{type.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="substrateType" />
+						<Select.Input name="substrate-type" id="substrate-type" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -509,6 +517,7 @@
 						type="text"
 						id="country"
 						name="country"
+						autocomplete="on"
 						bind:value={country}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -520,6 +529,8 @@
 					<Input
 						type="text"
 						id="region"
+						name="region"
+						autocomplete="on"
 						bind:value={region}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -537,7 +548,7 @@
 								<Select.Item value={budget.value}>{budget.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="budget" />
+						<Select.Input name="budget" id="budget" />
 					</Select.Root>
 				</div>
 			</fieldset>
