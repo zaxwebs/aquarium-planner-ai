@@ -304,7 +304,6 @@
 					>
 					<Input
 						type="number"
-						step="0.01"
 						id="target-ph"
 						name="target-ph"
 						bind:value={targetPh}
