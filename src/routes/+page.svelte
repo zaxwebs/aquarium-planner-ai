@@ -175,6 +175,7 @@
 						type="number"
 						id="length"
 						name="length"
+						step="any"
 						bind:value={length}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -187,6 +188,7 @@
 						type="number"
 						id="width"
 						name="width"
+						step="any"
 						bind:value={width}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -199,6 +201,7 @@
 						type="number"
 						id="height"
 						name="height"
+						step="any"
 						bind:value={height}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
@@ -306,6 +309,7 @@
 						type="number"
 						id="target-ph"
 						name="target-ph"
+						step="any"
 						bind:value={targetPh}
 						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
