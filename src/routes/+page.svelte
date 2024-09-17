@@ -3,6 +3,8 @@
 	import * as Select from '$lib/components/ui/select'
 	import { Label } from '$lib/components/ui/label'
 
+	import units from '$lib/data/units.js'
+
 	let length = ''
 	let width = ''
 	let height = ''
@@ -153,8 +155,23 @@
 					</Select.Root>
 				</div>
 				<div class="mb-4">
+					<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
+						>Unit</label
+					>
+					<Select.Root>
+						<Select.Trigger>
+							<Select.Value placeholder="Unit" />
+						</Select.Trigger>
+						<Select.Content>
+							{#each units.length as unit}
+								<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
+							{/each}
+						</Select.Content>
+					</Select.Root>
+				</div>
+				<div class="mb-4">
 					<label for="length" class="block text-sm font-medium text-gray-700 mb-2"
-						>Length (cm/in)</label
+						>Length</label
 					>
 					<Input
 						type="number"
@@ -166,7 +183,7 @@
 				</div>
 				<div class="mb-4">
 					<label for="width" class="block text-sm font-medium text-gray-700 mb-2"
-						>Width (cm/in)</label
+						>Width</label
 					>
 					<Input
 						type="number"
@@ -178,7 +195,7 @@
 				</div>
 				<div class="mb-4">
 					<label for="height" class="block text-sm font-medium text-gray-700 mb-2"
-						>Height (cm/in)</label
+						>Height</label
 					>
 					<Input
 						type="number"
