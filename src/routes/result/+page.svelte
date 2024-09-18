@@ -42,7 +42,7 @@
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 				<div class="border p-3 rounded">
 					<div class="flex justify-between items-center mb-3">
-						<p class="font-semibold text-teal-700">pH</p>
+						<p class="font-semibold text-teal-700 flex-1">pH</p>
 						<PHDialog />
 					</div>
 					<p>{demoData.waterParameters.pH}</p>

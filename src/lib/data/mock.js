@@ -12,8 +12,8 @@ export default {
 			size: '1-1.5 inches',
 			temperament: 'Peaceful',
 			environment: {
-				temperature: '70-81°F',
-				pH: '6.0-7.0',
+				temperature: { min: 70, max: 81 },
+				pH: { min: 6.0, max: 7.0 },
 				hardness: 'soft to moderately hard',
 			},
 			lifespan: '5 years',
@@ -34,8 +34,8 @@ export default {
 			size: '2-2.5 inches',
 			temperament: 'Peaceful',
 			environment: {
-				temperature: '72-78°F',
-				pH: '6.0-7.5',
+				temperature: { min: 72, max: 78 },
+				pH: { min: 6.0, max: 7.5 },
 				hardness: 'soft to moderately hard',
 			},
 			lifespan: '5-10 years',
@@ -56,8 +56,8 @@ export default {
 			size: '6 inches',
 			temperament: 'Semi-aggressive',
 			environment: {
-				temperature: '76-82°F',
-				pH: '6.5-7.5',
+				temperature: { min: 76, max: 82 },
+				pH: { min: 6.5, max: 7.5 },
 				hardness: 'soft to medium',
 			},
 			lifespan: '10-15 years',
@@ -78,8 +78,8 @@ export default {
 			size: '2-3 inches',
 			temperament: 'Peaceful',
 			environment: {
-				temperature: '78-85°F',
-				pH: '6.0-7.5',
+				temperature: { min: 78, max: 85 },
+				pH: { min: 6.0, max: 7.5 },
 				hardness: 'soft to medium',
 			},
 			lifespan: '2-4 years',

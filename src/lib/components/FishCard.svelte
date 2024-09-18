@@ -1,4 +1,5 @@
 <script>
+	import PHScale from '$lib/components/PHScale.svelte'
 	export let fish
 </script>
 
@@ -37,8 +38,16 @@
 	<div class="mt-4">
 		<span class="font-semibold text-gray-700 text-sm">Environment</span>
 		<ul class="text-gray-600 mt-1 list-disc list-inside">
-			<li>Temperature: {fish.environment.temperature}</li>
-			<li>pH: {fish.environment.pH}</li>
+			<li>
+				Temperature: {fish.environment.temperature.min}°F - {fish.environment.temperature
+					.max}°F
+			</li>
+			<li>
+				<div>
+					pH: {fish.environment.pH.min.toFixed(1)} - {fish.environment.pH.max.toFixed(1)}
+				</div>
+				<PHScale pH={fish.environment.pH} />
+			</li>
 			<li>Hardness: {fish.environment.hardness}</li>
 		</ul>
 	</div>
