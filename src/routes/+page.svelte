@@ -54,13 +54,20 @@
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-2xl mx-auto">
-		<h1 class="text-5xl text-center text-teal-800 mb-8 font-serif italic">
-			Aquarium Planner AI
-		</h1>
+		<div class="flex flex-col md:flex-row items-center justify-center mb-8 gap-4 md:gap-6">
+			<img
+				class="max-w-24 md:max-w-32 max-h-24 md:max-h-32 object-cover"
+				src="/images/green-fish.png"
+				alt="Fish"
+			/>
+			<h1 class="text-5xl text-center text-teal-800 font-serif italic">
+				Aquarium Planner AI
+			</h1>
+		</div>
+
 		<p class="mb-12">
 			Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it
-			easy to plan the perfect tank for your aquatic buddies or helps you improve your
-			existing setup.
+			easy to plan a great tank setup and the right aquatic buddies.
 		</p>
 		<form method="post" action="/result">
 			<!-- Tank Dimensions Fieldset -->
