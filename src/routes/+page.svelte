@@ -122,7 +122,9 @@
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-2xl mx-auto">
-		<h1 class="text-3xl font-bold text-center text-teal-800 mb-8">Aquarium Planner AI</h1>
+		<h1 class="text-5xl text-center text-teal-800 mb-8 font-serif italic">
+			Aquarium Planner AI
+		</h1>
 		<p class="mb-12">
 			Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it
 			easy to plan the perfect tank for your aquatic buddies or helps you improve your
@@ -130,7 +132,7 @@
 		</p>
 		<form method="post" action="/result">
 			<!-- Tank Dimensions Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
 				<Tabs.Root class="mb-4" value="dimensions">
 					<Tabs.List class="grid w-full grid-cols-2">
@@ -229,7 +231,7 @@
 			</fieldset>
 
 			<!-- Livestock Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Livestock Preferences</legend
 				>
@@ -287,7 +289,7 @@
 			</fieldset>
 
 			<!-- Water Chemistry Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Water Chemistry</legend>
 				<div class="mb-4">
 					<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
@@ -353,7 +355,7 @@
 			</fieldset>
 
 			<!-- Equipment Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Equipment Preferences</legend
 				>
@@ -430,7 +432,7 @@
 			</fieldset>
 
 			<!-- Maintenance Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Maintenance Preferences</legend
 				>
@@ -455,7 +457,7 @@
 			</fieldset>
 
 			<!-- Aquascaping Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Aquascaping Preferences</legend
 				>
@@ -514,7 +516,7 @@
 			</fieldset>
 
 			<!-- Location & Budget Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
+			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Location & Budget</legend>
 				<div class="mb-4">
 					<label for="country" class="block text-sm font-medium text-gray-700 mb-2"
