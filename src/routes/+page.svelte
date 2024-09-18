@@ -6,6 +6,22 @@
 
 	import units from '$lib/data/units.js'
 
+	import {
+		waterTypes,
+		fishBehaviors,
+		fishSizes,
+		experienceLevels,
+		waterSources,
+		hardnessLevels,
+		filterTypes,
+		lightingTypes,
+		maintenanceFrequencies,
+		waterChangeOptions,
+		plantTypes,
+		substrateTypes,
+		budgets,
+	} from '$lib/data/general.js'
+
 	let dimensionUnit = ''
 	let volumeUnit = ''
 	let volume = ''
@@ -16,7 +32,6 @@
 	let fishBehavior = ''
 	let fishSize = ''
 	let experienceLevel = ''
-	let bioloadLevel = ''
 	let waterSource = ''
 	let targetPh = '6.8'
 	let waterHardness = ''
@@ -31,89 +46,6 @@
 	let substrateType = ''
 	let country = ''
 	let region = ''
-	let budget = ''
-
-	const waterTypes = [
-		{ value: 'freshwater', label: 'Freshwater' },
-		{ value: 'saltwater', label: 'Saltwater' },
-		{ value: 'any', label: 'Any' },
-	]
-
-	const fishBehaviors = [
-		{ value: 'peaceful', label: 'Peaceful' },
-		{ value: 'semiAggressive', label: 'Semi-Aggressive' },
-		{ value: 'aggressive', label: 'Aggressive' },
-		{ value: 'any', label: 'Any' },
-	]
-
-	const fishSizes = [
-		{ value: 'small', label: 'Small' },
-		{ value: 'medium', label: 'Medium' },
-		{ value: 'large', label: 'Large' },
-		{ value: 'any', label: 'Any' },
-	]
-
-	const experienceLevels = [
-		{ value: 'beginner', label: 'Beginner' },
-		{ value: 'intermediate', label: 'Intermediate' },
-		{ value: 'expert', label: 'Expert' },
-		{ value: 'any', label: 'Any' },
-	]
-
-	const waterSources = [
-		{ value: 'tap', label: 'Tap' },
-		{ value: 'ro', label: 'RO' },
-		{ value: 'distilled', label: 'Distilled' },
-		{ value: 'wellWater', label: 'Well Water' },
-	]
-
-	const hardnessLevels = [
-		{ value: 'soft', label: 'Soft' },
-		{ value: 'medium', label: 'Medium' },
-		{ value: 'hard', label: 'Hard' },
-	]
-
-	const filterTypes = [
-		{ value: 'canister', label: 'Canister' },
-		{ value: 'hangOnBack', label: 'Hang-on-Back' },
-		{ value: 'sponge', label: 'Sponge' },
-		{ value: 'internal', label: 'Internal' },
-	]
-
-	const lightingTypes = [
-		{ value: 'led', label: 'LED' },
-		{ value: 'fluorescent', label: 'Fluorescent' },
-		{ value: 't5', label: 'T5' },
-	]
-
-	const maintenanceFrequencies = [
-		{ value: 'low', label: 'Low' },
-		{ value: 'medium', label: 'Medium' },
-		{ value: 'high', label: 'High' },
-	]
-
-	const waterChangeOptions = [
-		{ value: 'manual', label: 'Manual' },
-		{ value: 'automatic', label: 'Automatic' },
-	]
-
-	const plantTypes = [
-		{ value: 'lowLight', label: 'Low-light' },
-		{ value: 'mediumLight', label: 'Medium-light' },
-		{ value: 'highLight', label: 'High-light' },
-	]
-
-	const substrateTypes = [
-		{ value: 'gravel', label: 'Gravel' },
-		{ value: 'sand', label: 'Sand' },
-		{ value: 'aquasoil', label: 'Aquasoil' },
-	]
-
-	const budgets = [
-		{ value: 'low', label: 'Low' },
-		{ value: 'medium', label: 'Medium' },
-		{ value: 'high', label: 'High' },
-	]
 </script>
 
 <svelte:head>
@@ -132,7 +64,7 @@
 		</p>
 		<form method="post" action="/result">
 			<!-- Tank Dimensions Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
 				<Tabs.Root class="mb-4" value="dimensions">
 					<Tabs.List class="grid w-full grid-cols-2">
@@ -166,7 +98,7 @@
 								name="length"
 								step="any"
 								bind:value={length}
-								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>
 						<div class="mb-4">
@@ -179,7 +111,7 @@
 								name="width"
 								step="any"
 								bind:value={width}
-								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>
 						<div class="mb-4">
@@ -192,7 +124,7 @@
 								name="height"
 								step="any"
 								bind:value={height}
-								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>
 					</Tabs.Content>
@@ -223,7 +155,7 @@
 								name="length"
 								step="any"
 								bind:value={length}
-								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>
 					</Tabs.Content>
@@ -231,7 +163,7 @@
 			</fieldset>
 
 			<!-- Livestock Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Livestock Preferences</legend
 				>
@@ -289,7 +221,7 @@
 			</fieldset>
 
 			<!-- Water Chemistry Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Water Chemistry</legend>
 				<div class="mb-4">
 					<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
@@ -333,7 +265,7 @@
 						name="target-ph"
 						step="any"
 						bind:value={targetPh}
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
 				<div class="mb-4">
@@ -355,7 +287,7 @@
 			</fieldset>
 
 			<!-- Equipment Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Equipment Preferences</legend
 				>
@@ -399,7 +331,7 @@
 							name="aquarium-heater"
 							bind:checked={aquariumHeater}
 							value="true"
-							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
 							id="aquarium-heater-label"
@@ -418,7 +350,7 @@
 							name="water-pump"
 							bind:checked={waterPump}
 							value="true"
-							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
 							id="water-pump-label"
@@ -432,7 +364,7 @@
 			</fieldset>
 
 			<!-- Maintenance Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Maintenance Preferences</legend
 				>
@@ -457,7 +389,7 @@
 			</fieldset>
 
 			<!-- Aquascaping Preferences Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2"
 					>Aquascaping Preferences</legend
 				>
@@ -469,7 +401,7 @@
 							name="live-plants"
 							bind:checked={livePlants}
 							value="true"
-							class="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
 							id="live-plants-label"
@@ -516,7 +448,7 @@
 			</fieldset>
 
 			<!-- Location & Budget Fieldset -->
-			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white md:p-6">
+			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Location & Budget</legend>
 				<div class="mb-4">
 					<label for="country" class="block text-sm font-medium text-gray-700 mb-2"
@@ -528,7 +460,7 @@
 						name="country"
 						autocomplete="on"
 						bind:value={country}
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
 				<div class="mb-4">
@@ -541,7 +473,7 @@
 						name="region"
 						autocomplete="on"
 						bind:value={region}
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
 				<div class="mb-4">

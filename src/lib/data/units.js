@@ -1,5 +1,5 @@
 // Fairly synced with convert-units.js
-// ft can be ft-us and ft, review this later.
+// Feet can be 'ft-us' and 'ft', review this later.
 // Light intensity is yet to be reviewed.
 
 export default {
