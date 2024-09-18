@@ -1,12 +1,14 @@
 <script>
 	import { Input } from '$lib/components/ui/input'
 	import * as Select from '$lib/components/ui/select'
+	import * as Tabs from '$lib/components/ui/tabs'
 	import { Label } from '$lib/components/ui/label'
 
 	import units from '$lib/data/units.js'
 
-	let shape = ''
-	let unit = ''
+	let dimensionUnit = ''
+	let volumeUnit = ''
+	let volume = ''
 	let length = ''
 	let width = ''
 	let height = ''
@@ -30,12 +32,6 @@
 	let country = ''
 	let region = ''
 	let budget = ''
-
-	const shapes = [
-		{ value: 'rectangle', label: 'Rectangle' },
-		{ value: 'cube', label: 'Cube' },
-		{ value: 'cylinder', label: 'Cylinder' },
-	]
 
 	const waterTypes = [
 		{ value: 'freshwater', label: 'Freshwater' },
@@ -129,83 +125,107 @@
 		<h1 class="text-3xl font-bold text-center text-teal-800 mb-8">Aquarium Planner AI</h1>
 		<p class="mb-12">
 			Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it
-			easy to create the perfect tank for your aquatic buddies.
+			easy to plan the perfect tank for your aquatic buddies or helps you improve your
+			existing setup.
 		</p>
 		<form method="post" action="/result">
 			<!-- Tank Dimensions Fieldset -->
 			<fieldset class="border border-gray-300 p-4 rounded-md mb-6 bg-white">
-				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Dimensions</legend>
-				<div class="mb-4">
-					<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
-						>Shape</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Shape" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each shapes as shape}
-								<Select.Item value={shape.value}>{shape.label}</Select.Item>
-							{/each}
-						</Select.Content>
-						<Select.Input name="shape" id="shape" />
-					</Select.Root>
-				</div>
-				<div class="mb-4">
-					<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
-						>Unit</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Unit" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each units.length as unit}
-								<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
-							{/each}
-						</Select.Content>
-						<Select.Input name="unit" id="unit" />
-					</Select.Root>
-				</div>
-				<div class="mb-4">
-					<label for="length" class="block text-sm font-medium text-gray-700 mb-2"
-						>Length</label
-					>
-					<Input
-						type="number"
-						id="length"
-						name="length"
-						step="any"
-						bind:value={length}
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-					/>
-				</div>
-				<div class="mb-4">
-					<label for="width" class="block text-sm font-medium text-gray-700 mb-2"
-						>Width</label
-					>
-					<Input
-						type="number"
-						id="width"
-						name="width"
-						step="any"
-						bind:value={width}
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-					/>
-				</div>
-				<div class="mb-4">
-					<label for="height" class="block text-sm font-medium text-gray-700 mb-2"
-						>Height</label
-					>
-					<Input
-						type="number"
-						id="height"
-						name="height"
-						step="any"
-						bind:value={height}
-						class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-					/>
-				</div>
+				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
+				<Tabs.Root class="mb-4" value="dimensions">
+					<Tabs.List class="grid w-full grid-cols-2">
+						<Tabs.Trigger value="dimensions">Dimensions</Tabs.Trigger>
+						<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
+					</Tabs.List>
+					<Tabs.Content value="dimensions">
+						<div class="mb-4">
+							<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
+								>Unit</label
+							>
+							<Select.Root>
+								<Select.Trigger>
+									<Select.Value placeholder="Unit" />
+								</Select.Trigger>
+								<Select.Content>
+									{#each units.length as unit}
+										<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
+									{/each}
+								</Select.Content>
+								<Select.Input name="dimension-unit" id="dimension-unit" />
+							</Select.Root>
+						</div>
+						<div class="mb-4">
+							<label for="length" class="block text-sm font-medium text-gray-700 mb-2"
+								>Length</label
+							>
+							<Input
+								type="number"
+								id="length"
+								name="length"
+								step="any"
+								bind:value={length}
+								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+							/>
+						</div>
+						<div class="mb-4">
+							<label for="width" class="block text-sm font-medium text-gray-700 mb-2"
+								>Width</label
+							>
+							<Input
+								type="number"
+								id="width"
+								name="width"
+								step="any"
+								bind:value={width}
+								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+							/>
+						</div>
+						<div class="mb-4">
+							<label for="height" class="block text-sm font-medium text-gray-700 mb-2"
+								>Height</label
+							>
+							<Input
+								type="number"
+								id="height"
+								name="height"
+								step="any"
+								bind:value={height}
+								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+							/>
+						</div>
+					</Tabs.Content>
+					<Tabs.Content value="volume">
+						<div class="mb-4">
+							<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
+								>Unit</label
+							>
+							<Select.Root>
+								<Select.Trigger>
+									<Select.Value placeholder="Unit" />
+								</Select.Trigger>
+								<Select.Content>
+									{#each units.volume as unit}
+										<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
+									{/each}
+								</Select.Content>
+								<Select.Input name="volume-unit" id="volume-unit" />
+							</Select.Root>
+						</div>
+						<div class="mb-4">
+							<label for="length" class="block text-sm font-medium text-gray-700 mb-2"
+								>Volume</label
+							>
+							<Input
+								type="number"
+								id="length"
+								name="length"
+								step="any"
+								bind:value={length}
+								class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+							/>
+						</div>
+					</Tabs.Content>
+				</Tabs.Root>
 			</fieldset>
 
 			<!-- Livestock Preferences Fieldset -->
@@ -430,22 +450,6 @@
 							{/each}
 						</Select.Content>
 						<Select.Input name="maintenance-frequency" id="maintenance-frequency" />
-					</Select.Root>
-				</div>
-				<div class="mb-4">
-					<label for="water-change" class="block text-sm font-medium text-gray-700 mb-2"
-						>Water Change Preferences</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Water Change Option" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each waterChangeOptions as option}
-								<Select.Item value={option.value}>{option.label}</Select.Item>
-							{/each}
-						</Select.Content>
-						<Select.Input name="water-change" id="water-change" />
 					</Select.Root>
 				</div>
 			</fieldset>
