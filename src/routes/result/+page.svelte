@@ -58,33 +58,71 @@
 			</div>
 		</div>
 
-		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
-			<h2 class="text-xl font-medium text-teal-700 mb-4">Recommended Fish</h2>
-			<div class="grid grid-cols-1 gap-4">
-				{#each demoData.recommendedFishes as fish}
-					<FishCard {fish} />
-				{/each}
+		<div class="border rounded-lg overflow-hidden mb-6">
+			<div class="flex items-center justify-between p-6 bg-teal-50 border-b">
+				<div>
+					<h2 class="text-xl font-medium text-teal-700 mb-2">Recommended Fish</h2>
+					<p class="text-sm text-teal-900">These fish are recommended for your tank.</p>
+				</div>
+				<img
+					class="max-w-24 md:max-w-32 max-h-24 md:max-h-32 object-cover"
+					src="/images/green-fish.png"
+					alt="Fish"
+				/>
+			</div>
+			<div class="p-6 bg-white">
+				<div class="grid grid-cols-1 gap-4">
+					{#each demoData.recommendedFishes as fish}
+						<FishCard {fish} />
+					{/each}
+				</div>
 			</div>
 		</div>
 
-		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
-			<h2 class="text-xl font-medium text-teal-700 mb-4">Plant Recommendations</h2>
-			<div class="grid grid-cols-1 gap-4">
-				{#each demoData.plantRecommendations as plant}
-					<PlantCard {plant} />
-				{/each}
+		<div class="border rounded-lg overflow-hidden mb-6">
+			<div class="flex items-center justify-between p-6 bg-teal-50 border-b">
+				<div>
+					<h2 class="text-xl font-medium text-teal-700 mb-2">Plant Recommendations</h2>
+					<p class="text-sm text-teal-900">These plants are recommended for your tank.</p>
+				</div>
+				<img
+					class="max-w-24 md:max-w-32 max-h-24 md:max-h-32 object-cover"
+					src="/images/plant.png"
+					alt="Plant"
+				/>
+			</div>
+			<div class="p-6 bg-white">
+				<div class="grid grid-cols-1 gap-4">
+					{#each demoData.plantRecommendations as plant}
+						<PlantCard {plant} />
+					{/each}
+				</div>
 			</div>
 		</div>
 
-		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
-			<h2 class="text-xl font-medium text-teal-700 mb-4">Equipment Suggestions</h2>
-			<div class="grid grid-cols-1 gap-2">
-				{#each demoData.equipmentSuggestions as equipment}
-					<div class="border p-3 rounded flex items-center">
-						<span class="text-gray-600 mr-2">🔧</span>
-						<span>{equipment}</span>
-					</div>
-				{/each}
+		<div class="border rounded-lg overflow-hidden mb-6">
+			<div class="flex items-center justify-between p-6 bg-teal-50 border-b">
+				<div>
+					<h2 class="text-xl font-medium text-teal-700 mb-2">Equipment Suggestions</h2>
+					<p class="text-sm text-teal-900">
+						These items are recommended for your tank setup.
+					</p>
+				</div>
+				<img
+					class="max-w-24 md:max-w-32 max-h-24 md:max-h-32 object-cover"
+					src="/images/gas-tank.png"
+					alt="Equipment"
+				/>
+			</div>
+			<div class="p-6 bg-white">
+				<div class="grid grid-cols-1 gap-2">
+					{#each demoData.equipmentSuggestions as equipment}
+						<div class="border p-3 rounded flex items-center">
+							<span class="text-gray-600 mr-2">🔧</span>
+							<span>{equipment}</span>
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 
