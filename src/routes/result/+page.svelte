@@ -77,11 +77,6 @@
 		</div>
 
 		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
-			<h2 class="text-xl font-medium text-teal-700 mb-4">Maintenance</h2>
-			<p>{demoData.maintenanceSchedule}</p>
-		</div>
-
-		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
 			<h2 class="text-xl font-medium text-teal-700 mb-4">Equipment Suggestions</h2>
 			<div class="grid grid-cols-1 gap-2">
 				{#each demoData.equipmentSuggestions as equipment}
@@ -91,6 +86,11 @@
 					</div>
 				{/each}
 			</div>
+		</div>
+
+		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
+			<h2 class="text-xl font-medium text-teal-700 mb-4">Maintenance</h2>
+			<p>{demoData.maintenanceSchedule}</p>
 		</div>
 
 		<div class="flex justify-center mt-8">
