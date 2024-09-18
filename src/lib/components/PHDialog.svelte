@@ -79,7 +79,7 @@
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			{#each phData as { range, effect, suitableFor, species, color }}
 				<div class={`${color} rounded-lg p-4`}>
-					<h3 class="text-lg font-bold mb-2">pH {range}</h3>
+					<h3 class="text-lg font-semibold mb-3">pH {range}</h3>
 					<p class="mb-2"><span class="font-semibold">Effect — </span> {effect}</p>
 					<p class="mb-2">
 						<span class="font-semibold">Suitable For — </span>
