@@ -1,7 +1,7 @@
 export const waterTypes = [
 	{ value: 'freshwater', label: 'Freshwater' },
 	{ value: 'saltwater', label: 'Saltwater' },
-	{ value: 'any', label: 'Any' },
+	{ value: 'brackish', label: 'Brackish' },
 ]
 
 export const fishBehaviors = [
@@ -18,7 +18,7 @@ export const fishSizes = [
 	{ value: 'any', label: 'Any' },
 ]
 
-export const experienceLevels = [
+export const careLevels = [
 	{ value: 'beginner', label: 'Beginner' },
 	{ value: 'intermediate', label: 'Intermediate' },
 	{ value: 'expert', label: 'Expert' },

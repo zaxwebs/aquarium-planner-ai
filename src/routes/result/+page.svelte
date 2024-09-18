@@ -131,6 +131,21 @@
 			<p>{demoData.maintenanceSchedule}</p>
 		</div>
 
+		<div class="mb-6 p-6 bg-white rounded-lg border">
+			<div class="flex items-center justify-between gap-8">
+				<img
+					class="max-w-24 md:max-w-32 max-h-24 md:max-h-32 object-cover"
+					src="/images/albert.png"
+					alt="Scientist"
+				/>
+				<div>
+					Every aquarium is one-of-a-kind, so think of this plan as a helpful starting
+					point. You might need to tweak and experiment a bit to find what works perfectly
+					for your setup.
+				</div>
+			</div>
+		</div>
+
 		<div class="flex justify-center mt-8">
 			<Button href="/" variant="outline" class="mr-4">Start Over</Button>
 			<button

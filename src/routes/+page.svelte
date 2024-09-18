@@ -10,7 +10,7 @@
 		waterTypes,
 		fishBehaviors,
 		fishSizes,
-		experienceLevels,
+		careLevels,
 		waterSources,
 		hardnessLevels,
 		filterTypes,
@@ -209,20 +209,19 @@
 					</Select.Root>
 				</div>
 				<div class="mb-4">
-					<label
-						for="experience-level"
-						class="block text-sm font-medium text-gray-700 mb-2">Experience Level</label
+					<label for="care-level" class="block text-sm font-medium text-gray-700 mb-2"
+						>Care Level</label
 					>
 					<Select.Root>
 						<Select.Trigger>
-							<Select.Value placeholder="Experience Level" />
+							<Select.Value placeholder="Care Level" />
 						</Select.Trigger>
 						<Select.Content>
-							{#each experienceLevels as level}
+							{#each careLevels as level}
 								<Select.Item value={level.value}>{level.label}</Select.Item>
 							{/each}
 						</Select.Content>
-						<Select.Input name="experience-level" id="experience-level" />
+						<Select.Input name="care-level" id="care-level" />
 					</Select.Root>
 				</div>
 			</fieldset>
@@ -365,6 +364,25 @@
 							class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 						>
 							Water Pump
+						</Label>
+					</div>
+				</div>
+
+				<div class="flex items-center mb-4">
+					<div class="flex items-center space-x-2">
+						<Input
+							type="checkbox"
+							id="co2-system"
+							name="co2-system"
+							value="true"
+							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
+						/>
+						<Label
+							for="co2-system"
+							class="text-sm font-medium leading-none 
+							peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+						>
+							CO2 System
 						</Label>
 					</div>
 				</div>
