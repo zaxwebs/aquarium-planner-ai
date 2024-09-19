@@ -5,7 +5,7 @@
 	import { Label } from '$lib/components/ui/label'
 
 	import units from '$lib/data/units.js'
-
+	import { findOption } from '$lib/utils/helpers.js'
 	import {
 		waterTypes,
 		fishBehaviors,
@@ -22,16 +22,36 @@
 		budgets,
 	} from '$lib/data/general.js'
 
-	let volume = ''
 	let length = ''
 	let width = ''
 	let height = ''
+	let calculatedVolume = ''
+
+	let selectedCalculatedVolumeUnit = findOption('gal', units.volume)
+	$: {
+		console.log(selectedCalculatedVolumeUnit)
+	}
 
 	let targetPh = '6.8'
 
 	let aquariumHeater = false
 	let livePlants = false
 	let waterPump = false
+
+	$: {
+		if (length && width && height) {
+			const l = parseFloat(length)
+			const w = parseFloat(width)
+			const h = parseFloat(height)
+			if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
+				calculatedVolume = (l * w * h).toFixed(2)
+			} else {
+				calculatedVolume = ''
+			}
+		} else {
+			calculatedVolume = ''
+		}
+	}
 </script>
 
 <svelte:head>
@@ -66,8 +86,9 @@
 					</Tabs.List>
 					<Tabs.Content value="dimensions">
 						<div class="mb-4">
-							<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
-								>Unit</label
+							<label
+								for="dimension-unit"
+								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
 							>
 							<Select.Root>
 								<Select.Trigger>
@@ -75,7 +96,7 @@
 								</Select.Trigger>
 								<Select.Content>
 									{#each units.length as unit}
-										<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
+										<Select.Item value={unit.value}>{unit.label}</Select.Item>
 									{/each}
 								</Select.Content>
 								<Select.Input name="dimension-unit" id="dimension-unit" />
@@ -120,11 +141,44 @@
 								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>
+						{#if true}
+							<div
+								class="mb-4 border p-6 rounded grid grid-cols-2 gap-4 items-center"
+							>
+								<div class="flex gap-4">
+									<div class="font-semibold text-teal-700">Calculated Volume</div>
+									<div>{calculatedVolume}</div>
+								</div>
+
+								<div>
+									<Select.Root
+										selected={selectedCalculatedVolumeUnit}
+										onSelectedChange={(v) => (selectedCalculatedVolumeUnit = v)}
+									>
+										<Select.Trigger>
+											<Select.Value placeholder="Unit" />
+										</Select.Trigger>
+										<Select.Content>
+											{#each units.volume as unit}
+												<Select.Item value={unit.value}
+													>{unit.label}</Select.Item
+												>
+											{/each}
+										</Select.Content>
+										<Select.Input
+											name="calculated-volume-unit"
+											id="calculated-volume-unit"
+										/>
+									</Select.Root>
+								</div>
+							</div>
+						{/if}
 					</Tabs.Content>
 					<Tabs.Content value="volume">
 						<div class="mb-4">
-							<label for="shape" class="block text-sm font-medium text-gray-700 mb-2"
-								>Unit</label
+							<label
+								for="volume-unit"
+								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
 							>
 							<Select.Root>
 								<Select.Trigger>
@@ -132,22 +186,21 @@
 								</Select.Trigger>
 								<Select.Content>
 									{#each units.volume as unit}
-										<Select.Item value={unit.symbol}>{unit.name}</Select.Item>
+										<Select.Item value={unit.value}>{unit.label}</Select.Item>
 									{/each}
 								</Select.Content>
 								<Select.Input name="volume-unit" id="volume-unit" />
 							</Select.Root>
 						</div>
 						<div class="mb-4">
-							<label for="length" class="block text-sm font-medium text-gray-700 mb-2"
+							<label for="volume" class="block text-sm font-medium text-gray-700 mb-2"
 								>Volume</label
 							>
 							<Input
 								type="number"
-								id="length"
-								name="length"
+								id="volume"
+								name="volume"
 								step="any"
-								bind:value={length}
 								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>

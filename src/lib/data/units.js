@@ -4,30 +4,30 @@
 
 export default {
 	"volume": [
-		{ "name": "Liters", "symbol": "l" },
-		{ "name": "Gallons", "symbol": "gal" },
+		{ "label": "Liters", "value": "l" },
+		{ "label": "Gallons", "value": "gal" },
 	],
 	"length": [
-		{ "name": "Centimeters", "symbol": "cm" },
-		{ "name": "Meters", "symbol": "m" },
-		{ "name": "Inches", "symbol": "in" },
-		{ "name": "Feet", "symbol": "ft" }
+		{ "label": "Centimeters", "value": "cm" },
+		{ "label": "Meters", "value": "m" },
+		{ "label": "Inches", "value": "in" },
+		{ "label": "Feet", "value": "ft" }
 	],
 	"mass": [
-		{ "name": "Kilograms", "symbol": "kg" },
-		{ "name": "Grams", "symbol": "g" },
-		{ "name": "Pounds", "symbol": "lb" }
+		{ "label": "Kilograms", "value": "kg" },
+		{ "label": "Grams", "value": "g" },
+		{ "label": "Pounds", "value": "lb" }
 	],
 	"temperature": [
-		{ "name": "Celsius", "symbol": "C" },
-		{ "name": "Fahrenheit", "symbol": "F" }
+		{ "label": "Celsius", "value": "C" },
+		{ "label": "Fahrenheit", "value": "F" }
 	],
 	"water_flow": [
-		{ "name": "Liters per hour", "symbol": "l/h" },
-		{ "name": "Gallons per hour", "symbol": "gal/h" }
+		{ "label": "Liters per hour", "value": "l/h" },
+		{ "label": "Gallons per hour", "value": "gal/h" }
 	],
 	"light_intensity": [
-		{ "name": "Lumens", "symbol": "lm" },
-		{ "name": "PAR", "symbol": "PAR" }
+		{ "label": "Lumens", "value": "lm" },
+		{ "label": "PAR", "value": "PAR" }
 	]
 }
