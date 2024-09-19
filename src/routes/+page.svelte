@@ -22,30 +22,16 @@
 		budgets,
 	} from '$lib/data/general.js'
 
-	let dimensionUnit = ''
-	let volumeUnit = ''
 	let volume = ''
 	let length = ''
 	let width = ''
 	let height = ''
-	let waterType = ''
-	let fishBehavior = ''
-	let fishSize = ''
-	let experienceLevel = ''
-	let waterSource = ''
+
 	let targetPh = '6.8'
-	let waterHardness = ''
-	let filterType = ''
-	let lightingType = ''
+
 	let aquariumHeater = false
-	let waterPump = false
-	let maintenanceFrequency = ''
-	let waterChange = ''
 	let livePlants = false
-	let plantType = ''
-	let substrateType = ''
-	let country = ''
-	let region = ''
+	let waterPump = false
 </script>
 
 <svelte:head>
@@ -501,7 +487,6 @@
 						id="country"
 						name="country"
 						autocomplete="on"
-						bind:value={country}
 						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
@@ -514,7 +499,6 @@
 						id="region"
 						name="region"
 						autocomplete="on"
-						bind:value={region}
 						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
