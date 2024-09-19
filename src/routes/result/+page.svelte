@@ -15,9 +15,15 @@
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto">
-		<h1 class="text-5xl text-center text-teal-800 mb-8 font-serif italic">
-			Your Aquarium Plan
-		</h1>
+		<div class="text-center flex flex-col items-center mb-12">
+			<h1 class="text-5xl text-center text-teal-800 mb-4 font-serif italic">
+				Your Aquarium Plan
+			</h1>
+			<p class="max-w-lg">
+				We've crafted a tailored plan for your aquatic ecosystem based on your preferences.
+				Explore the details below.
+			</p>
+		</div>
 
 		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
 			<h2 class="text-xl font-medium text-teal-700 mb-4">Tank Overview</h2>

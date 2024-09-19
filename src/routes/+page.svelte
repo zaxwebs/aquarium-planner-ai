@@ -73,10 +73,10 @@
 			<!-- Tank Dimensions Fieldset -->
 			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
-				<Tabs.Root class="mb-4" value="dimensions">
+				<Tabs.Root class="mb-4" value="volume">
 					<Tabs.List class="grid w-full grid-cols-2">
-						<Tabs.Trigger value="dimensions">Dimensions</Tabs.Trigger>
 						<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
+						<Tabs.Trigger value="dimensions">Dimensions</Tabs.Trigger>
 					</Tabs.List>
 					<Tabs.Content value="dimensions">
 						<div class="mb-4">
@@ -452,6 +452,23 @@
 							{/each}
 						</Select.Content>
 						<Select.Input name="plant-type" id="plant-type" />
+					</Select.Root>
+				</div>
+				<div class="mb-4">
+					<label
+						for="plant-care-level"
+						class="block text-sm font-medium text-gray-700 mb-2">Care Level</label
+					>
+					<Select.Root>
+						<Select.Trigger>
+							<Select.Value placeholder="Care Level" />
+						</Select.Trigger>
+						<Select.Content>
+							{#each careLevels as level}
+								<Select.Item value={level.value}>{level.label}</Select.Item>
+							{/each}
+						</Select.Content>
+						<Select.Input name="plant-care-level" id="plant-care-level" />
 					</Select.Root>
 				</div>
 				<div class="mb-4">
