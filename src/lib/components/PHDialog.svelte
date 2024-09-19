@@ -7,42 +7,42 @@
 			effect: 'Very acidic, can be stressful for most fish',
 			suitableFor: 'Specialized setups',
 			species: 'Amazonian fish (e.g., certain tetras)',
-			color: 'bg-red-50',
+			color: 'bg-red-600',
 		},
 		{
 			range: '5.5 - 6.5',
 			effect: 'Acidic, can be acceptable for some species',
 			suitableFor: 'Soft water fish and plants',
 			species: 'Neon tetras, discus, some species of cichlids',
-			color: 'bg-orange-50',
+			color: 'bg-orange-600',
 		},
 		{
 			range: '6.5 - 7.5',
 			effect: 'Slightly acidic to neutral, suitable for a wide range',
 			suitableFor: 'General community tanks',
 			species: 'Most freshwater fish, many plants',
-			color: 'bg-green-50',
+			color: 'bg-green-600',
 		},
 		{
 			range: '7.5 - 8.5',
 			effect: 'Slightly alkaline to alkaline, can affect certain species',
 			suitableFor: 'Hard water fish and plants',
 			species: 'African cichlids, livebearers (e.g., guppies)',
-			color: 'bg-blue-50',
+			color: 'bg-blue-600',
 		},
 		{
 			range: '8.5 - 9.5',
 			effect: 'Alkaline, can be stressful for many species',
 			suitableFor: 'Specialized setups',
 			species: 'Some African cichlids, certain marine species',
-			color: 'bg-purple-50',
+			color: 'bg-purple-600',
 		},
 		{
 			range: '9.5 - 10.0',
 			effect: 'Very alkaline, usually requires careful management',
 			suitableFor: 'Specialized setups',
 			species: 'Marine aquariums, certain desert-adapted species',
-			color: 'bg-pink-50',
+			color: 'bg-pink-600',
 		},
 	]
 </script>
@@ -59,7 +59,7 @@
 			stroke-width="2"
 			stroke-linecap="round"
 			stroke-linejoin="round"
-			class="text-gray-500 hover:text-teal-600 size-4"
+			class="text-gray-6000 hover:text-teal-600 size-4"
 			><path
 				d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
 			/><line x1="12" x2="12" y1="16" y2="12" /><line x1="12" x2="12.01" y1="8" y2="8" /></svg
@@ -78,8 +78,11 @@
 		</Dialog.Header>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 			{#each phData as { range, effect, suitableFor, species, color }}
-				<div class={`${color} rounded-lg p-4`}>
-					<h3 class="text-lg font-semibold mb-3">pH {range}</h3>
+				<div class="border p-4 rounded-lg">
+					<div class="flex items-center gap-3 mb-3">
+						<div class={`${color} rounded-full size-4`}></div>
+						<h3 class="text-lg font-semibold">pH {range}</h3>
+					</div>
 					<p class="mb-2"><span class="font-semibold">Effect — </span> {effect}</p>
 					<p class="mb-2">
 						<span class="font-semibold">Suitable For — </span>
