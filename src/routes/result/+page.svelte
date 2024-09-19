@@ -131,8 +131,9 @@
 			<p>{demoData.maintenanceSchedule}</p>
 		</div>
 
-		<div class="mb-6 p-6 bg-white rounded-lg border">
-			<div class="flex items-center justify-between gap-8">
+		<div class="mb-6 p-6 bg-white rounded-lg border relative overflow-hidden">
+			<div class="absolute inset-0 grid-pattern"></div>
+			<div class="flex items-center justify-between gap-8 relative z-10">
 				<img
 					class="max-w-24 md:max-w-32 max-h-24 md:max-h-32 object-cover"
 					src="/images/albert.png"
@@ -158,3 +159,14 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.grid-pattern {
+		background-image: linear-gradient(to right, rgba(0, 128, 128, 0.1) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(0, 128, 128, 0.1) 1px, transparent 1px);
+		background-size: 5% 40px;
+		mask-image: linear-gradient(to bottom, black, transparent);
+		-webkit-mask-image: linear-gradient(to bottom, black, transparent);
+		opacity: 0.8;
+	}
+</style>
