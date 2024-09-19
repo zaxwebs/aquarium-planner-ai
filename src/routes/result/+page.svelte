@@ -123,8 +123,11 @@
 			<div class="p-6 bg-white">
 				<div class="grid grid-cols-1 gap-2">
 					{#each demoData.equipmentSuggestions as equipment}
-						<div class="border p-4 rounded flex items-center">
-							<span class="text-gray-600 mr-2">🔧</span>
+						<div class="border p-4 rounded flex items-center gap-4">
+							<span
+								class="text-xl size-10 bg-gray-50 rounded-full flex items-center justify-center"
+								>📦</span
+							>
 							<span>{equipment}</span>
 						</div>
 					{/each}
@@ -132,9 +135,78 @@
 			</div>
 		</div>
 
-		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
-			<h2 class="text-xl font-medium text-teal-700 mb-4">Maintenance</h2>
-			<p>{demoData.maintenanceSchedule}</p>
+		<div class="border rounded-lg overflow-hidden mb-6">
+			<div class="flex items-center justify-between p-6 bg-teal-50 border-b">
+				<div>
+					<h2 class="text-xl font-medium text-teal-700 mb-2">Maintenance Schedule</h2>
+					<p class="text-sm text-teal-900">
+						Recommended maintenance tasks for your aquarium.
+					</p>
+				</div>
+				<img
+					class="max-w-24 max-h-24 md:max-h-32 object-cover"
+					src="/images/water-container.png"
+					alt="Maintenance"
+				/>
+			</div>
+			<div class="p-6 bg-white">
+				<div class="mt-4">
+					<span class="font-semibold text-gray-700 text-sm">Weekly</span>
+					<ul class="text-gray-600 mt-1 list-disc list-inside">
+						<li>
+							Water Change: Replace 10-15% of the water to maintain water quality.
+						</li>
+						<li>
+							Filter Check: Inspect the filter for proper operation and clean if
+							necessary.
+						</li>
+						<li>
+							Algae Removal: Wipe algae off the tank walls and check plants for algae
+							growth.
+						</li>
+					</ul>
+				</div>
+				<div class="mt-4">
+					<span class="font-semibold text-gray-700 text-sm">Bi-weekly</span>
+					<ul class="text-gray-600 mt-1 list-disc list-inside">
+						<li>
+							Test Water Parameters: Test and adjust pH, ammonia, nitrite, and nitrate
+							levels.
+						</li>
+						<li>
+							Clean Substrate: Use a gravel vacuum to remove debris from the
+							substrate.
+						</li>
+					</ul>
+				</div>
+				<div class="mt-4">
+					<span class="font-semibold text-gray-700 text-sm">Monthly</span>
+					<ul class="text-gray-600 mt-1 list-disc list-inside">
+						<li>
+							Filter Cleaning: Thoroughly clean the filter media and replace if
+							needed.
+						</li>
+						<li>
+							Inspect Equipment: Check all equipment (heater, filter, lighting) for
+							proper function.
+						</li>
+						<li>Trim Plants: Prune and remove dead plant material.</li>
+					</ul>
+				</div>
+				<div class="mt-4">
+					<span class="font-semibold text-gray-700 text-sm">Quarterly</span>
+					<ul class="text-gray-600 mt-1 list-disc list-inside">
+						<li>
+							Deep Clean: Empty the tank partially, clean all decorations, and scrub
+							the tank thoroughly.
+						</li>
+						<li>
+							Equipment Maintenance: Perform a detailed check and maintenance of the
+							heater and filter.
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 		<div class="mb-6 p-6 bg-white rounded-lg border relative overflow-hidden">

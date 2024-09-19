@@ -129,7 +129,6 @@ export default {
 			co2Requirement: 'Low',
 		},
 	],
-	maintenanceSchedule: 'Weekly 25% water changes',
 	equipmentSuggestions: [
 		'Canister filter (rated for 50-100 gallons)',
 		'200W heater',
