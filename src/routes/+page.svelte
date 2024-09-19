@@ -28,9 +28,6 @@
 	let calculatedVolume = ''
 
 	let selectedCalculatedVolumeUnit = findOption('gal', units.volume)
-	$: {
-		console.log(selectedCalculatedVolumeUnit)
-	}
 
 	let targetPh = '6.8'
 
@@ -87,7 +84,7 @@
 					<Tabs.Content value="dimensions">
 						<div class="mb-4">
 							<label
-								for="dimension-unit"
+								for="length-unit"
 								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
 							>
 							<Select.Root>
@@ -99,7 +96,7 @@
 										<Select.Item value={unit.value}>{unit.label}</Select.Item>
 									{/each}
 								</Select.Content>
-								<Select.Input name="dimension-unit" id="dimension-unit" />
+								<Select.Input name="length-unit" id="length-unit" />
 							</Select.Root>
 						</div>
 						<div class="mb-4">

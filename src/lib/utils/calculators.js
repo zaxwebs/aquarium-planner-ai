@@ -1,3 +1,8 @@
+import defaultUnits from '$lib/data/defaultUnits';
+import configureMeasurements from 'convert-units';
+
+const convert = configureMeasurements();
+
 /**
  * Calculates the recommended filtration flow rate for an aquarium
  * @param {number} tankVolume - The volume of the aquarium in liters
@@ -18,5 +23,22 @@ function calculateHeaterWattage(tankVolume, wattsPerGallon = 4) {
 	return tankSize * wattsPerGallon;
 }
 
-// Export the function
-export { calculateFiltrationFlowRate };
+/**
+ * Calculates the volume of an aquarium
+ * @param {number} length - The length of the aquarium
+ * @param {number} width - The width of the aquarium
+ * @param {number} height - The height of the aquarium
+ * @param {string} lengthUnit - The unit of the dimensions (e.g., 'cm', 'in')
+ * @param {string} volumeUnit - The desired unit for the volume (e.g., 'l', 'gal')
+ * @returns {number} The volume of the aquarium in the specified unit
+ */
+function calculateVolume(length, width, height, lengthUnit = defaultUnits.length, volumeUnit = defaultUnits.volume) {
+	// Calculate volume in the input unit
+	const volume = length * width * height;
+
+	// Convert to the desired volume unit
+	return convert(volume).from(`${lengthUnit}3`).to(volumeUnit);
+}
+
+// Export the functions
+export { calculateFiltrationFlowRate, calculateHeaterWattage, calculateAquariumVolume };
