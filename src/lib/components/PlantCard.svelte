@@ -3,11 +3,20 @@
 </script>
 
 <div class="border border-gray-200 p-6 rounded-lg">
-	<div class="flex items-center mb-4">
-		<span class="text-teal-600 text-xl mr-3">🌿</span>
-		<h2 class="text-lg font-medium text-gray-800">
-			{plant.name}
-		</h2>
+	<div class="flex items-center mb-8 gap-4">
+		<span class="text-xl size-14 bg-teal-50 rounded-full flex items-center justify-center"
+			>🌿</span
+		>
+		<div>
+			<div class="flex items-center gap-2">
+				<h2 class="text-lg font-medium text-gray-800">
+					{plant.name}
+				</h2>
+			</div>
+			<div class="text-sm text-gray-600">
+				{plant.scientificName}
+			</div>
+		</div>
 	</div>
 
 	<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

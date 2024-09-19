@@ -6,7 +6,7 @@
 	import PHDialog from '$lib/components/PHDialog.svelte'
 
 	// Mock data (in a real scenario, this would come from the API)
-	import demoData from '$lib/data/mock'
+	import demoData from '$lib/data/demo'
 </script>
 
 <svelte:head>
@@ -28,15 +28,15 @@
 		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
 			<h2 class="text-xl font-medium text-teal-700 mb-4">Tank Overview</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-				<div class="border p-3 rounded">
+				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Tank Size</p>
 					<p>{demoData.tankSize}</p>
 				</div>
-				<div class="border p-3 rounded">
+				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Filtration Rate</p>
 					<p>{demoData.filtrationRate}</p>
 				</div>
-				<div class="border p-3 rounded">
+				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Estimated Bioload</p>
 					<p>{demoData.bioload}</p>
 				</div>
@@ -46,18 +46,18 @@
 		<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
 			<h2 class="text-xl font-medium text-teal-700 mb-4">Water Parameters</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-				<div class="border p-3 rounded">
+				<div class="border p-4 rounded">
 					<div class="flex justify-between items-center mb-3">
 						<p class="font-semibold text-teal-700 flex-1">pH</p>
 						<PHDialog />
 					</div>
 					<p>{demoData.waterParameters.pH}</p>
 				</div>
-				<div class="border p-3 rounded">
+				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Temperature</p>
 					<p>{demoData.waterParameters.temperature}</p>
 				</div>
-				<div class="border p-3 rounded">
+				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Hardness</p>
 					<p>{demoData.waterParameters.hardness}</p>
 				</div>
@@ -123,7 +123,7 @@
 			<div class="p-6 bg-white">
 				<div class="grid grid-cols-1 gap-2">
 					{#each demoData.equipmentSuggestions as equipment}
-						<div class="border p-3 rounded flex items-center">
+						<div class="border p-4 rounded flex items-center">
 							<span class="text-gray-600 mr-2">🔧</span>
 							<span>{equipment}</span>
 						</div>

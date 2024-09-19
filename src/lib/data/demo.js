@@ -5,6 +5,8 @@ export default {
 	recommendedFishes: [
 		{
 			name: 'Neon Tetra',
+			scientificName: 'Paracheirodon innesi',
+			family: 'Characidae',
 			recommendation: {
 				quantity: 5,
 				reason: 'Colorful schooling fish that adds movement to the mid-level of the tank.',
@@ -17,16 +19,16 @@ export default {
 				hardness: 'soft to moderately hard',
 			},
 			lifespan: '5 years',
-			tankRequirements: {
-				minSize: '10 gallons',
-				region: 'Middle',
-			},
+			minGallons: 10,
+			tankRegion: 'Middle',
 			careLevel: 'Easy',
 			coloration: 'Blue and red iridescent',
 			activityLevel: 'Active swimmer',
 		},
 		{
 			name: 'Corydoras Catfish',
+			scientificName: 'Corydoras sp.',
+			family: 'Callichthyidae',
 			recommendation: {
 				quantity: 3,
 				reason: 'Bottom-dwelling scavengers that help keep the substrate clean.',
@@ -39,16 +41,16 @@ export default {
 				hardness: 'soft to moderately hard',
 			},
 			lifespan: '5-10 years',
-			tankRequirements: {
-				minSize: '20 gallons',
-				region: 'Bottom',
-			},
+			minGallons: 20,
+			tankRegion: 'Bottom',
 			careLevel: 'Easy',
 			coloration: 'Varies by species, often mottled patterns',
 			activityLevel: 'Moderate',
 		},
 		{
 			name: 'Angelfish',
+			scientificName: 'Pterophyllum scalare',
+			family: 'Cichlidae',
 			recommendation: {
 				quantity: 1,
 				reason: 'Centerpiece fish that adds vertical interest to the aquarium.',
@@ -61,16 +63,16 @@ export default {
 				hardness: 'soft to medium',
 			},
 			lifespan: '10-15 years',
-			tankRequirements: {
-				minSize: '30 gallons',
-				region: 'All levels',
-			},
+			minGallons: 30,
+			tankRegion: 'All levels',
 			careLevel: 'Moderate',
 			coloration: 'Various patterns and colors available',
 			activityLevel: 'Moderate',
 		},
 		{
 			name: 'German Blue Ram',
+			scientificName: 'Mikrogeophagus ramirezi',
+			family: 'Cichlidae',
 			recommendation: {
 				quantity: 2,
 				reason: 'Colorful dwarf cichlids that add personality to the lower levels of the tank.',
@@ -83,10 +85,8 @@ export default {
 				hardness: 'soft to medium',
 			},
 			lifespan: '2-4 years',
-			tankRequirements: {
-				minSize: '20 gallons',
-				region: 'Bottom to middle',
-			},
+			minGallons: 20,
+			tankRegion: 'Bottom to middle',
 			careLevel: 'Moderate',
 			coloration: 'Blue body with red fins',
 			activityLevel: 'Active',
@@ -100,6 +100,7 @@ export default {
 	plantRecommendations: [
 		{
 			name: 'Amazon Sword',
+			scientificName: 'Echinodorus grisebachii',
 			size: 'Large',
 			care: 'Easy',
 			placement: 'Background',
@@ -109,6 +110,7 @@ export default {
 		},
 		{
 			name: 'Java Fern',
+			scientificName: 'Microsorum pteropus',
 			size: 'Medium',
 			care: 'Easy',
 			placement: 'Mid-ground',
@@ -118,6 +120,7 @@ export default {
 		},
 		{
 			name: 'Anubias',
+			scientificName: 'Anubias barteri',
 			size: 'Small to Medium',
 			care: 'Easy',
 			placement: 'Foreground to Mid-ground',

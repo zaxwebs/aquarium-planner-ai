@@ -1,11 +1,16 @@
 <script lang="ts">
+	import { cn } from '$lib/utils.js'
+
+	let className
+	export { className as class }
+
 	export let pH: { min: number; max: number }
 
 	$: minPosition = Math.max(0, Math.min(100, ((pH.min - 0) / (14 - 0)) * 100))
 	$: maxPosition = Math.max(0, Math.min(100, ((pH.max - 0) / (14 - 0)) * 100))
 </script>
 
-<div class="my-5">
+<div class={cn('my-5', className)}>
 	<div class="relative w-full h-3 rounded-full bg-ph">
 		{#each [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] as value}
 			<div

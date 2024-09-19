@@ -4,12 +4,22 @@
 </script>
 
 <div class="border border-gray-200 p-6 rounded-lg">
-	<div class="flex items-center mb-4">
-		<span class="text-teal-600 text-xl mr-3">🐟</span>
-		<h2 class="text-lg font-medium text-gray-800 mr-3">
-			{fish.name}
-		</h2>
-		<div>x{fish.recommendation.quantity}</div>
+	<div class="flex items-center mb-8 gap-4">
+		<span
+			class="text-teal-600 text-xl size-14 bg-sky-50 rounded-full flex items-center justify-center"
+			>🐟</span
+		>
+		<div>
+			<div class="flex items-center gap-2">
+				<h2 class="text-lg font-medium text-gray-800">
+					{fish.name}
+				</h2>
+				<div class="text-teal-600">x{fish.recommendation.quantity}</div>
+			</div>
+			<div class="text-sm text-gray-600">
+				{fish.scientificName}
+			</div>
+		</div>
 	</div>
 
 	<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -49,14 +59,8 @@
 				<PHScale pH={fish.environment.pH} />
 			</li>
 			<li>Hardness: {fish.environment.hardness}</li>
-		</ul>
-	</div>
-
-	<div class="mt-4">
-		<span class="font-semibold text-gray-700 text-sm">Tank Requirements</span>
-		<ul class="text-gray-600 mt-1 list-disc list-inside">
-			<li>Minimum Size: {fish.tankRequirements.minSize}</li>
-			<li>Region: {fish.tankRequirements.region}</li>
+			<li>Minimum Tank Size: {fish.minGallons} gallons</li>
+			<li>Tank Region: {fish.tankRegion}</li>
 		</ul>
 	</div>
 
