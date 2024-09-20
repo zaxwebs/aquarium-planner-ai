@@ -36,6 +36,7 @@ export const hardnessLevels = [
 	{ value: 'soft', label: 'Soft' },
 	{ value: 'medium', label: 'Medium' },
 	{ value: 'hard', label: 'Hard' },
+	{ value: 'any', label: 'Any' },
 ]
 
 export const filterTypes = [
@@ -43,6 +44,7 @@ export const filterTypes = [
 	{ value: 'hangOnBack', label: 'Hang-on-Back' },
 	{ value: 'sponge', label: 'Sponge' },
 	{ value: 'internal', label: 'Internal' },
+	{ value: 'any', label: 'Any' },
 ]
 
 export const lightingTypes = [
@@ -60,12 +62,6 @@ export const maintenanceFrequencies = [
 export const waterChangeOptions = [
 	{ value: 'manual', label: 'Manual' },
 	{ value: 'automatic', label: 'Automatic' },
-]
-
-export const plantTypes = [
-	{ value: 'lowLight', label: 'Low-light' },
-	{ value: 'mediumLight', label: 'Medium-light' },
-	{ value: 'highLight', label: 'High-light' },
 ]
 
 export const substrateTypes = [

@@ -6,7 +6,7 @@
 
 	import units from '$lib/data/units.js'
 	import defaultUnits from '$lib/data/defaultUnits.js'
-
+	import formDefaults from '$lib/data/formDefaults.js'
 	import {
 		waterTypes,
 		fishBehaviors,
@@ -18,7 +18,6 @@
 		lightingTypes,
 		maintenanceFrequencies,
 		waterChangeOptions,
-		plantTypes,
 		substrateTypes,
 		budgets,
 	} from '$lib/data/general.js'
@@ -36,11 +35,24 @@
 	let selectedLengthUnit = findOption(defaultUnits.length, units.length)
 	let selectedVolumeUnit = findOption(defaultUnits.volume, units.volume)
 
+	let selectedFilterType = findOption(formDefaults.filterType, filterTypes)
+	let selectedFishSize = findOption(formDefaults.fishSize, fishSizes)
+	let selectedFishBehavior = findOption(formDefaults.fishBehavior, fishBehaviors)
+	let selectedWaterType = findOption(formDefaults.waterType, waterTypes)
+	let selectedCareLevel = findOption(formDefaults.careLevel, careLevels)
+	let selectedWaterSource = findOption(formDefaults.waterSource, waterSources)
+	let selectedMaintenanceFrequency = findOption(
+		formDefaults.maintenanceFrequency,
+		maintenanceFrequencies
+	)
+	let selectedHardnessLevel = findOption(formDefaults.hardnessLevel, hardnessLevels)
+
 	let targetPh = '6.8'
 
 	let aquariumHeater = false
-	let livePlants = false
+	let livePlants = true
 	let waterPump = false
+	let co2System = false
 
 	$: {
 		if (length && width && height && selectedLengthUnit && selectedCalculatedVolumeUnit) {
@@ -153,7 +165,7 @@
 								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 							/>
 						</div>
-						{#if true}
+						{#if calculatedVolume}
 							<div
 								class="mb-4 border p-6 rounded grid grid-cols-2 gap-4 items-center"
 							>
@@ -236,7 +248,12 @@
 					<label for="fish-behavior" class="block text-sm font-medium text-gray-700 mb-2"
 						>Fish Behavior</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedFishBehavior}
+						onSelectedChange={(v) => {
+							selectedFishBehavior = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Fish Behavior" />
 						</Select.Trigger>
@@ -254,7 +271,12 @@
 					<label for="fish-size" class="block text-sm font-medium text-gray-700 mb-2"
 						>Fish Size</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedFishSize}
+						onSelectedChange={(v) => {
+							selectedFishSize = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Fish Size" />
 						</Select.Trigger>
@@ -270,7 +292,12 @@
 					<label for="care-level" class="block text-sm font-medium text-gray-700 mb-2"
 						>Care Level</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedCareLevel}
+						onSelectedChange={(v) => {
+							selectedCareLevel = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Care Level" />
 						</Select.Trigger>
@@ -291,7 +318,12 @@
 					<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
 						>Water Type</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedWaterType}
+						onSelectedChange={(v) => {
+							selectedWaterType = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Water Type" />
 						</Select.Trigger>
@@ -307,7 +339,12 @@
 					<label for="water-source" class="block text-sm font-medium text-gray-700 mb-2"
 						>Water Source</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedWaterSource}
+						onSelectedChange={(v) => {
+							selectedWaterSource = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Water Source" />
 						</Select.Trigger>
@@ -336,7 +373,12 @@
 					<label for="water-hardness" class="block text-sm font-medium text-gray-700 mb-2"
 						>Hardness</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedHardnessLevel}
+						onSelectedChange={(v) => {
+							selectedHardnessLevel = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Hardness Level" />
 						</Select.Trigger>
@@ -359,7 +401,12 @@
 					<label for="filter-type" class="block text-sm font-medium text-gray-700 mb-2"
 						>Filter Type</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedFilterType}
+						onSelectedChange={(v) => {
+							selectedFilterType = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Filter Type" />
 						</Select.Trigger>
@@ -369,22 +416,6 @@
 							{/each}
 						</Select.Content>
 						<Select.Input name="filter-type" id="filter-type" />
-					</Select.Root>
-				</div>
-				<div class="mb-4">
-					<label for="lighting-type" class="block text-sm font-medium text-gray-700 mb-2"
-						>Lighting Type</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Lighting Type" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each lightingTypes as type}
-								<Select.Item value={type.value}>{type.label}</Select.Item>
-							{/each}
-						</Select.Content>
-						<Select.Input name="lighting-type" id="lighting-type" />
 					</Select.Root>
 				</div>
 				<div class="flex items-center mb-4">
@@ -406,25 +437,6 @@
 						</Label>
 					</div>
 				</div>
-				<div class="flex items-center mb-4">
-					<div class="flex items-center space-x-2">
-						<Input
-							type="checkbox"
-							id="water-pump"
-							name="water-pump"
-							bind:checked={waterPump}
-							value="true"
-							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
-						/>
-						<Label
-							id="water-pump-label"
-							for="water-pump"
-							class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-						>
-							Water Pump
-						</Label>
-					</div>
-				</div>
 
 				<div class="flex items-center mb-4">
 					<div class="flex items-center space-x-2">
@@ -433,6 +445,7 @@
 							id="co2-system"
 							name="co2-system"
 							value="true"
+							bind:checked={co2System}
 							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
 						/>
 						<Label
@@ -457,7 +470,12 @@
 						class="block text-sm font-medium text-gray-700 mb-2"
 						>Maintenance Frequency</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedMaintenanceFrequency}
+						onSelectedChange={(v) => {
+							selectedMaintenanceFrequency = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Maintenance Frequency" />
 						</Select.Trigger>
@@ -495,22 +513,6 @@
 							Live Plants
 						</Label>
 					</div>
-				</div>
-				<div class="mb-4">
-					<label for="plant-type" class="block text-sm font-medium text-gray-700 mb-2"
-						>Plant Type</label
-					>
-					<Select.Root>
-						<Select.Trigger>
-							<Select.Value placeholder="Plant Type" />
-						</Select.Trigger>
-						<Select.Content>
-							{#each plantTypes as type}
-								<Select.Item value={type.value}>{type.label}</Select.Item>
-							{/each}
-						</Select.Content>
-						<Select.Input name="plant-type" id="plant-type" />
-					</Select.Root>
 				</div>
 				<div class="mb-4">
 					<label
@@ -564,7 +566,7 @@
 				</div>
 				<div class="mb-4">
 					<label for="region" class="block text-sm font-medium text-gray-700 mb-2"
-						>Region/State</label
+						>Region</label
 					>
 					<Input
 						type="text"
