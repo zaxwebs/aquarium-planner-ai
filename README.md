@@ -1,38 +1,54 @@
-# create-svelte
+# AquaPlanner
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+AquaPlanner AI is an intelligent aquarium planning tool that helps both beginners and experienced fish-keepers design a great tank setup.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+-   Factors tank dimensions, livestock, and other preferences to provide personalized recommendations
+-   Water chemistry parameters
+-   Equipment recommendations
+-   Maintenance schedule suggestions
+-   Aquascaping preferences
+-   Budget considerations
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Technologies Used
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+-   Svelte
+-   SvelteKit
+-   TailwindCSS
+-   Custom UI components
 
-## Developing
+## Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone the repository:
 
-```bash
-npm run dev
+    ```
+    git clone https://github.com/zaxwebs/aquarium-planner-ai
+    ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+2. Navigate to the project directory:
 
-## Building
+    ```
+    cd aquarium-planner-ai
+    ```
 
-To create a production version of your app:
+3. Install dependencies:
 
-```bash
-npm run build
-```
+    ```
+    npm install
+    ```
 
-You can preview the production build with `npm run preview`.
+4. Run the development server:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+    ```
+    npm run dev
+    ```
+
+5. Open your browser and visit `http://localhost:5173`
+
+## Project Structure
+
+-   `src/routes/+page.svelte`: Main application page
+-   `src/lib/components/ui/`: UI components
+-   `src/lib/data/`: Data files for form options
+-   `src/lib/utils/`: Utility functions

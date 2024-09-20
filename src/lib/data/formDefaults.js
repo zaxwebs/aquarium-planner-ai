@@ -9,4 +9,6 @@ export default {
 	waterSource: "tap",
 	maintenanceFrequency: "low",
 	hardnessLevel: "any",
+	budget: "any",
+	substrateType: "any",
 }

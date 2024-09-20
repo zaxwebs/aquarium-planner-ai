@@ -15,9 +15,7 @@
 		waterSources,
 		hardnessLevels,
 		filterTypes,
-		lightingTypes,
 		maintenanceFrequencies,
-		waterChangeOptions,
 		substrateTypes,
 		budgets,
 	} from '$lib/data/general.js'
@@ -46,6 +44,9 @@
 		maintenanceFrequencies
 	)
 	let selectedHardnessLevel = findOption(formDefaults.hardnessLevel, hardnessLevels)
+	let selectedBudget = findOption(formDefaults.budget, budgets)
+	let selectedPlantCareLevel = findOption(formDefaults.careLevel, careLevels)
+	let selectedSubstrateType = findOption(formDefaults.substrateType, substrateTypes)
 
 	let targetPh = '6.8'
 
@@ -519,7 +520,12 @@
 						for="plant-care-level"
 						class="block text-sm font-medium text-gray-700 mb-2">Care Level</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedPlantCareLevel}
+						onSelectedChange={(v) => {
+							selectedPlantCareLevel = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Care Level" />
 						</Select.Trigger>
@@ -535,7 +541,12 @@
 					<label for="substrate-type" class="block text-sm font-medium text-gray-700 mb-2"
 						>Substrate Type</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedSubstrateType}
+						onSelectedChange={(v) => {
+							selectedSubstrateType = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Substrate Type" />
 						</Select.Trigger>
@@ -580,7 +591,12 @@
 					<label for="budget" class="block text-sm font-medium text-gray-700 mb-2"
 						>Budget</label
 					>
-					<Select.Root>
+					<Select.Root
+						selected={selectedBudget}
+						onSelectedChange={(v) => {
+							selectedBudget = v
+						}}
+					>
 						<Select.Trigger>
 							<Select.Value placeholder="Budget" />
 						</Select.Trigger>

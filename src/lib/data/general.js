@@ -47,31 +47,23 @@ export const filterTypes = [
 	{ value: 'any', label: 'Any' },
 ]
 
-export const lightingTypes = [
-	{ value: 'led', label: 'LED' },
-	{ value: 'fluorescent', label: 'Fluorescent' },
-	{ value: 't5', label: 'T5' },
-]
-
 export const maintenanceFrequencies = [
 	{ value: 'low', label: 'Low' },
 	{ value: 'medium', label: 'Medium' },
 	{ value: 'high', label: 'High' },
-]
-
-export const waterChangeOptions = [
-	{ value: 'manual', label: 'Manual' },
-	{ value: 'automatic', label: 'Automatic' },
+	{ value: 'any', label: 'Any' },
 ]
 
 export const substrateTypes = [
 	{ value: 'gravel', label: 'Gravel' },
 	{ value: 'sand', label: 'Sand' },
 	{ value: 'aquasoil', label: 'Aquasoil' },
+	{ value: 'any', label: 'Any' },
 ]
 
 export const budgets = [
 	{ value: 'low', label: 'Low' },
 	{ value: 'medium', label: 'Medium' },
 	{ value: 'high', label: 'High' },
+	{ value: 'any', label: 'Any' },
 ]
