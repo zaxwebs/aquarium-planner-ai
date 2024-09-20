@@ -38,8 +38,8 @@
 					<p>{demoData.filtrationRate}</p>
 				</div>
 				<div class="border p-4 rounded">
-					<p class="font-semibold text-teal-700 mb-3">Estimated Bioload</p>
-					<p>{demoData.bioload}</p>
+					<p class="font-semibold text-teal-700 mb-3">Type</p>
+					<p>{demoData.waterType}</p>
 				</div>
 			</div>
 		</div>

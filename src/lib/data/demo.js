@@ -1,7 +1,7 @@
 export default {
 	tankSize: '50 gallons',
 	filtrationRate: '250 GPH',
-	bioload: 'Medium',
+	waterType: 'Freshwater',
 	recommendedFishes: [
 		{
 			name: 'Neon Tetra',
