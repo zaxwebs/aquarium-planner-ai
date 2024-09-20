@@ -26,6 +26,8 @@
 
 	// Defaults
 
+	let volumeMode = 'volume'
+
 	let length = ''
 	let width = ''
 	let height = ''
@@ -76,6 +78,10 @@
 			calculatedVolume = ''
 		}
 	}
+
+	const handleVolumeModeChange = (value) => {
+		volumeMode = value
+	}
 </script>
 
 <svelte:head>
@@ -103,7 +109,8 @@
 			<!-- Tank Dimensions Fieldset -->
 			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
-				<Tabs.Root class="mb-4" value="volume">
+				<input type="hidden" name="volume-mode" bind:value={volumeMode} />
+				<Tabs.Root class="mb-4" value="volume" onValueChange={handleVolumeModeChange}>
 					<Tabs.List class="grid w-full grid-cols-2">
 						<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
 						<Tabs.Trigger value="dimensions">Dimensions</Tabs.Trigger>
