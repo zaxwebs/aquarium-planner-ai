@@ -42,7 +42,7 @@
 	let waterPump = false
 
 	$: {
-		if (length && width && height) {
+		if (length && width && height && selectedLengthUnit && selectedCalculatedVolumeUnit) {
 			if (!isNaN(length) && !isNaN(width) && !isNaN(height)) {
 				calculatedVolume = calculateVolume(
 					length,
@@ -98,7 +98,9 @@
 							>
 							<Select.Root
 								selected={selectedLengthUnit}
-								onSelectedChange={(v) => (selectedLengthUnit = v)}
+								onSelectedChange={(v) => {
+									selectedLengthUnit = v
+								}}
 							>
 								<Select.Trigger>
 									<Select.Value placeholder="Unit" />
@@ -162,7 +164,9 @@
 								<div>
 									<Select.Root
 										selected={selectedCalculatedVolumeUnit}
-										onSelectedChange={(v) => (selectedCalculatedVolumeUnit = v)}
+										onSelectedChange={(v) => {
+											selectedCalculatedVolumeUnit = v
+										}}
 									>
 										<Select.Trigger>
 											<Select.Value placeholder="Unit" />
