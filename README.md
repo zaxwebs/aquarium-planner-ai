@@ -1,6 +1,6 @@
-# AquaPlanner
+# AquaPlanner AI
 
-AquaPlanner AI is an intelligent aquarium planning tool that helps both beginners and experienced fish-keepers design a great tank setup.
+An intelligent aquarium planning tool that helps both beginners and experienced fish-keepers design a great tank setup with AI.
 
 ## Features
 
