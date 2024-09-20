@@ -34,6 +34,7 @@
 
 	let selectedCalculatedVolumeUnit = findOption(defaultUnits.volume, units.volume)
 	let selectedLengthUnit = findOption(defaultUnits.length, units.length)
+	let selectedVolumeUnit = findOption(defaultUnits.volume, units.volume)
 
 	let targetPh = '6.8'
 
@@ -193,7 +194,12 @@
 								for="volume-unit"
 								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
 							>
-							<Select.Root>
+							<Select.Root
+								selected={selectedVolumeUnit}
+								onSelectedChange={(v) => {
+									selectedVolumeUnit = v
+								}}
+							>
 								<Select.Trigger>
 									<Select.Value placeholder="Unit" />
 								</Select.Trigger>
