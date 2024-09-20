@@ -421,6 +421,7 @@
 				</div>
 				<div class="flex items-center mb-4">
 					<div class="flex items-center space-x-2">
+						<input type="hidden" name="aquarium-heater" value="false" />
 						<Input
 							type="checkbox"
 							id="aquarium-heater"
@@ -441,6 +442,7 @@
 
 				<div class="flex items-center mb-4">
 					<div class="flex items-center space-x-2">
+						<input type="hidden" name="co2-system" value="false" />
 						<Input
 							type="checkbox"
 							id="co2-system"
@@ -497,6 +499,7 @@
 				>
 				<div class="flex items-center mb-4">
 					<div class="flex items-center space-x-2">
+						<input type="hidden" name="live-plants" value="false" />
 						<Input
 							type="checkbox"
 							id="live-plants"
