@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils.js'
 
-	let className
+	let className = ''
 	export { className as class }
 
 	export let pH: { min: number; max: number }
