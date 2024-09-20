@@ -1,7 +1,5 @@
+import convert from "convert";
 import defaultUnits from '$lib/data/defaultUnits';
-import configureMeasurements from 'convert-units';
-
-const convert = configureMeasurements();
 
 /**
  * Calculates the recommended filtration flow rate for an aquarium
@@ -37,8 +35,8 @@ function calculateVolume(length, width, height, lengthUnit = defaultUnits.length
 	const volume = length * width * height;
 
 	// Convert to the desired volume unit
-	return convert(volume).from(`${lengthUnit}3`).to(volumeUnit);
+	return convert(volume, `${lengthUnit}3`).to(volumeUnit).toFixed(2);
 }
 
 // Export the functions
-export { calculateFiltrationFlowRate, calculateHeaterWattage, calculateAquariumVolume };
+export { calculateFiltrationFlowRate, calculateHeaterWattage, calculateVolume };

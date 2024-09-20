@@ -1,3 +1,5 @@
+// TODO: Switch from convert-units to convert
+
 // Fairly synced with convert-units.js
 // Feet can be 'ft-us' and 'ft', review this later.
 // Light intensity is yet to be reviewed.

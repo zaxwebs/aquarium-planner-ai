@@ -5,7 +5,8 @@
 	import { Label } from '$lib/components/ui/label'
 
 	import units from '$lib/data/units.js'
-	import { findOption } from '$lib/utils/helpers.js'
+	import defaultUnits from '$lib/data/defaultUnits.js'
+
 	import {
 		waterTypes,
 		fishBehaviors,
@@ -22,12 +23,17 @@
 		budgets,
 	} from '$lib/data/general.js'
 
+	import { findOption } from '$lib/utils/helpers.js'
+
+	import { calculateVolume } from '$lib/utils/calculators.js'
+
 	let length = ''
 	let width = ''
 	let height = ''
 	let calculatedVolume = ''
 
-	let selectedCalculatedVolumeUnit = findOption('gal', units.volume)
+	let selectedCalculatedVolumeUnit = findOption(defaultUnits.volume, units.volume)
+	let selectedLengthUnit = findOption(defaultUnits.length, units.length)
 
 	let targetPh = '6.8'
 
@@ -37,11 +43,14 @@
 
 	$: {
 		if (length && width && height) {
-			const l = parseFloat(length)
-			const w = parseFloat(width)
-			const h = parseFloat(height)
-			if (!isNaN(l) && !isNaN(w) && !isNaN(h)) {
-				calculatedVolume = (l * w * h).toFixed(2)
+			if (!isNaN(length) && !isNaN(width) && !isNaN(height)) {
+				calculatedVolume = calculateVolume(
+					length,
+					width,
+					height,
+					selectedLengthUnit.value,
+					selectedCalculatedVolumeUnit.value
+				)
 			} else {
 				calculatedVolume = ''
 			}
@@ -87,7 +96,10 @@
 								for="length-unit"
 								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
 							>
-							<Select.Root>
+							<Select.Root
+								selected={selectedLengthUnit}
+								onSelectedChange={(v) => (selectedLengthUnit = v)}
+							>
 								<Select.Trigger>
 									<Select.Value placeholder="Unit" />
 								</Select.Trigger>
