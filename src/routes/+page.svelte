@@ -24,6 +24,8 @@
 
 	import { calculateVolume } from '$lib/utils/calculators.js'
 
+	// Defaults
+
 	let length = ''
 	let width = ''
 	let height = ''
@@ -55,6 +57,8 @@
 	let waterPump = false
 	let co2System = false
 
+	// Volume Calculation
+
 	$: {
 		if (length && width && height && selectedLengthUnit && selectedCalculatedVolumeUnit) {
 			if (!isNaN(length) && !isNaN(width) && !isNaN(height)) {
@@ -75,7 +79,7 @@
 </script>
 
 <svelte:head>
-	<title>AquaPlanner</title>
+	<title>AquaPlanner AI</title>
 </svelte:head>
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
