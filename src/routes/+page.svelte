@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms'
 	import { Input } from '$lib/components/ui/input'
 	import * as Select from '$lib/components/ui/select'
 	import * as Tabs from '$lib/components/ui/tabs'
@@ -109,7 +110,16 @@
 			Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it
 			easy to plan a great tank setup and the right aquatic buddies.
 		</p>
-		<form method="post" action="/result">
+
+		{#if form?.errors}
+			<ul class="text-red-500 mb-12 p-4 bg-red-100 rounded-md">
+				{#each form.errors as error}
+					<li>{error.message}</li>
+				{/each}
+			</ul>
+		{/if}
+
+		<form method="post" action="/" use:enhance>
 			<!-- Tank Dimensions Fieldset -->
 			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
