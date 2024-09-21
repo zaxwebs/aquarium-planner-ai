@@ -24,6 +24,10 @@
 
 	import { calculateVolume } from '$lib/utils/calculators.js'
 
+	export let form
+
+	$: console.log(form)
+
 	// Defaults
 
 	let volumeMode = 'volume'

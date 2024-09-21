@@ -6,14 +6,19 @@ import { waterTypes } from '$lib/data/general.js';
 import units from '$lib/data/units.js';
 import { z } from 'zod';
 
+// TODO: Handle dimensions validation
+// TODO: Handle volume vs dimensions validation
+
 const schema = z.object({
 	'volume-mode': z.enum(['volume', 'dimensions']),
 	'length': z.coerce.number().min(1).optional(),
 	'width': z.coerce.number().min(1).optional(),
 	'height': z.coerce.number().min(1).optional(),
+	// 'volume': z.literal('').optional().or(z.coerce.number().min(1)),
 	'volume': z.coerce.number().min(1).optional(),
 	'volume-unit': z.string(),
 	'length-unit': z.string().optional(),
+
 	'calculated-volume-unit': z.string().optional(),
 	'fish-behavior': z.string(),
 	'fish-size': z.string(),
@@ -60,13 +65,10 @@ export const actions = {
 		// Validate the data using Zod
 		const parsed = schema.safeParse(result);
 
-		console.log('Parsed...', parsed);
-
 
 		if (!parsed.success) {
-			console.error(parsed.error.errors);
-			redirect(303, "/");
-			// return fail(400, { errors: parsed.error.errors });
+			console.error('Validation failed...', parsed.error.errors);
+			return fail(400, { errors: parsed.error.errors });
 		} else {
 			const cased = camelcaseKeys(result);
 

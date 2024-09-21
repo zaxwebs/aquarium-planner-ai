@@ -10,15 +10,13 @@
 	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
 
 	export let form
+
+	$: console.log(form)
 </script>
 
 <svelte:head>
 	<title>AquaPlanner Results</title>
 </svelte:head>
-
-<!-- <div>
-	{JSON.stringify(form)}
-</div> -->
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto">
@@ -37,7 +35,7 @@
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Tank Size</p>
-					<p>{demoData.volume}</p>
+					<p>{demoData.tankSize}</p>
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Filtration Rate</p>
