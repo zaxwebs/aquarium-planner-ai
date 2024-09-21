@@ -8,11 +8,18 @@
 	// Mock data (in a real scenario, this would come from the API)
 	import demoData from '$lib/data/demo'
 	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
+
+	export let form
+	const { base } = form
 </script>
 
 <svelte:head>
 	<title>AquaPlanner Results</title>
 </svelte:head>
+
+<!-- <div>
+	{JSON.stringify(form)}
+</div> -->
 
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto">
@@ -31,15 +38,15 @@
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Tank Size</p>
-					<p>{demoData.tankSize}</p>
+					<p>{base.volume} {base.volumeUnit.label}</p>
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Filtration Rate</p>
-					<p>{demoData.filtrationRate}</p>
+					<p>{base.filtrationRate} {base.filtrationRateUnit?.label}</p>
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Type</p>
-					<p>{demoData.waterType}</p>
+					<p>{base.waterType}</p>
 				</div>
 			</div>
 		</div>

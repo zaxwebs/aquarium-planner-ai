@@ -25,9 +25,10 @@ export default {
 		{ "label": "Fahrenheit", "value": "F" }
 	],
 	"water_flow": [
-		{ "label": "Liters per hour", "value": "l/h" },
-		{ "label": "Gallons per hour", "value": "gal/h" }
+		{ "label": "LPH", "value": "l/h" },
+		{ "label": "GPH", "value": "gal/h" }
 	],
+
 	"light_intensity": [
 		{ "label": "Lumens", "value": "lm" },
 		{ "label": "PAR", "value": "PAR" }

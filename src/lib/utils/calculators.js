@@ -2,12 +2,12 @@ import convert from "convert";
 import defaultUnits from '$lib/data/defaultUnits';
 
 /**
- * Calculates the recommended filtration flow rate for an aquarium
- * @param {number} tankVolume - The volume of the aquarium in liters
+ * Calculates the recommended filtration rate for an aquarium
+ * @param {number} tankVolume - The volume of the aquarium
  * @param {number} turnoverRate - The desired water turnover rate per hour (default: 4)
- * @returns {number} The recommended filtration flow rate in liters per hour
+ * @returns {number} The recommended filtration rate in units per hour
  */
-function calculateFiltrationFlowRate(tankVolume, turnoverRate = 4) {
+function calculateFiltrationRate(tankVolume, turnoverRate = 4) {
 	return tankVolume * turnoverRate;
 }
 
@@ -39,4 +39,4 @@ function calculateVolume(length, width, height, lengthUnit = defaultUnits.length
 }
 
 // Export the functions
-export { calculateFiltrationFlowRate, calculateHeaterWattage, calculateVolume };
+export { calculateFiltrationRate, calculateHeaterWattage, calculateVolume };

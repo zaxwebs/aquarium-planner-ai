@@ -1,4 +1,4 @@
-import { calculateVolume } from "$lib/utils/calculators.js";
+import { calculateVolume, calculateFiltrationRate } from "$lib/utils/calculators.js";
 
 const handleFormData = (data) => {
 	let result = Object.fromEntries(data);
@@ -18,6 +18,11 @@ const handleFormData = (data) => {
 			result['volume-unit']
 		);
 	}
+
+	// handle filtration rate
+	result['filtration-rate'] = calculateFiltrationRate(result.volume);
+	result['filtration-rate-unit'] = result['volume-unit'] + '/h';
+
 
 	return result;
 }
