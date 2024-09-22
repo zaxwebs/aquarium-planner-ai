@@ -1,30 +1,26 @@
 import { calculateVolume, calculateFiltrationRate } from "$lib/utils/calculators.js";
 
-const handleFormData = (data) => {
-	let result = Object.fromEntries(data);
+const processData = (data) => {
+
+	// TODO: Look into volume unit handling for volume modes at /+page.svelte
 
 	// Handle volume mode
-	if (result['volume-mode'] === 'volume') {
-		delete result['length'];
-		delete result['width'];
-		delete result['height'];
-		delete result['length-unit'];
-	} else {
-		result.volume = calculateVolume(
-			result['length'],
-			result['width'],
-			result['height'],
-			result['length-unit'],
-			result['volume-unit']
+	if (data.volumeMode === 'dimensions') {
+		data.volume = calculateVolume(
+			data.length,
+			data.width,
+			data.height,
+			data.lengthUnit,
+			data.volumeUnit
 		);
 	}
 
 	// handle filtration rate
-	result['filtration-rate'] = calculateFiltrationRate(result.volume);
-	result['filtration-rate-unit'] = result['volume-unit'] + '/h';
+	data.filtrationRate = calculateFiltrationRate(data.volume);
+	data.filtrationRateUnit = data.volumeUnit + '/h';
+
+	return data;
+};
 
 
-	return result;
-}
-
-export { handleFormData }
+export { processData }

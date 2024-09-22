@@ -9,9 +9,7 @@
 	import demoData from '$lib/data/demo'
 	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
 
-	export let form
-
-	$: console.log(form)
+	export let data
 </script>
 
 <svelte:head>
@@ -35,7 +33,7 @@
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Tank Size</p>
-					<p>{demoData.tankSize}</p>
+					<div>{data.base.volume} {data.base.volumeUnit}</div>
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Filtration Rate</p>
