@@ -4,12 +4,19 @@
 	import FishCard from '$lib/components/FishCard.svelte'
 	import PlantCard from '$lib/components/PlantCard.svelte'
 	import PHDialog from '$lib/components/PHDialog.svelte'
+	import { findOption } from '$lib/utils/helpers.js'
+	import units from '$lib/data/units.js'
 
 	// Mock data (in a real scenario, this would come from the API)
 	import demoData from '$lib/data/demo'
 	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
 
 	export let data
+
+	const baseData = data.base
+
+	let volumeUnit = findOption(baseData.volumeUnit, units.volume).label
+	let filtrationRateUnit = findOption(baseData.filtrationRateUnit, units.water_flow).label
 </script>
 
 <svelte:head>
@@ -33,11 +40,11 @@
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Tank Size</p>
-					<div>{data.base.volume} {data.base.volumeUnit}</div>
+					<div>{baseData.volume} {volumeUnit}</div>
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Filtration Rate</p>
-					<p>{demoData.filtrationRate}</p>
+					<p>{baseData.filtrationRate} {filtrationRateUnit}</p>
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Type</p>
