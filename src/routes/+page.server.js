@@ -12,30 +12,19 @@ export const actions = {
 		// Set a cookie that will be used to prevent direct access to the result page
 		cookies.set('submitted', true, { path: '/' });
 
-		const data = await request.formData();
-		const result = handleFormData(data);
-
-		console.log('Result...', result);
+		const formData = await request.formData();
+		const result = Object.fromEntries(formData.entries())
 
 		// Validate the data using Zod
-		const parsed = schema.safeParse(result);
+		const safeParseResult = schema.safeParse(result);
 
-		if (!parsed.success) {
-			console.error('Validation failed...', parsed.error.errors);
-			return fail(400, { errors: parsed.error.errors });
+		if (!safeParseResult.success) {
+			console.error('Validation failed...', safeParseResult.error.errors);
+			return fail(400, { success: false, errors: safeParseResult.error.errors });
 		} else {
-			const cased = camelcaseKeys(result);
-
-			// Send units as full objects to support conversion in future
-			const base = {
-				volume: cased.volume,
-				volumeUnit: findOption(cased.volumeUnit, units.volume),
-				filtrationRate: cased.filtrationRate,
-				filtrationRateUnit: findOption(cased.filtrationRateUnit, units['water_flow']),
-				waterType: findOption(cased.waterType, waterTypes).label,
-			};
-
-			return { base };
+			// save data as a cookie and redirect to result page
+			cookies.set('data', JSON.stringify(result), { path: '/' });
+			throw redirect(303, '/result');
 		}
 
 	}
