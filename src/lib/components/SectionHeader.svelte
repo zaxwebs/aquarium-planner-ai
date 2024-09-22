@@ -1,5 +1,10 @@
+<script>
+	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
+</script>
+
 <div
-	class="flex items-center justify-between p-6 bg-slate-100 border-b bg-[url('/images/bg-aura.png')] bg-no-repeat bg-cover"
+	class="flex items-center justify-between p-6 border-b relative bg-gradient-to-r from-blue-50 to-cyan-50"
 >
+	<GridUnderlay />
 	<slot />
 </div>

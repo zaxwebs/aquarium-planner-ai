@@ -122,7 +122,7 @@
 	<form method="post" action="/" use:enhance>
 		<!-- Tank Dimensions Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Tank Details</legend>
+			<legend class="text-lg font-semibold text-teal-800 px-2">Tank Details</legend>
 			<input type="hidden" name="volume-mode" bind:value={volumeMode} />
 			<Tabs.Root class="mb-4" value="volume" onValueChange={handleVolumeModeChange}>
 				<Tabs.List class="grid w-full grid-cols-2">
@@ -194,7 +194,7 @@
 					{#if calculatedVolume}
 						<div class="mb-4 border p-6 rounded grid grid-cols-2 gap-4 items-center">
 							<div class="flex gap-4">
-								<div class="font-semibold text-teal-700">Calculated Volume</div>
+								<div class="font-semibold text-teal-800">Calculated Volume</div>
 								<div>{calculatedVolume}</div>
 							</div>
 
@@ -265,7 +265,7 @@
 
 		<!-- Livestock Preferences Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Livestock Preferences</legend>
+			<legend class="text-lg font-semibold text-teal-800 px-2">Livestock Preferences</legend>
 			<div class="mb-4">
 				<label for="fish-behavior" class="block text-sm font-medium text-gray-700 mb-2"
 					>Fish Behavior</label
@@ -335,7 +335,7 @@
 
 		<!-- Water Chemistry Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Water Chemistry</legend>
+			<legend class="text-lg font-semibold text-teal-800 px-2">Water Chemistry</legend>
 			<div class="mb-4">
 				<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
 					>Water Type</label
@@ -416,7 +416,7 @@
 
 		<!-- Equipment Preferences Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Equipment Preferences</legend>
+			<legend class="text-lg font-semibold text-teal-800 px-2">Equipment Preferences</legend>
 			<div class="mb-4">
 				<label for="filter-type" class="block text-sm font-medium text-gray-700 mb-2"
 					>Filter Type</label
@@ -483,7 +483,7 @@
 
 		<!-- Maintenance Preferences Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Maintenance Preferences</legend
+			<legend class="text-lg font-semibold text-teal-800 px-2">Maintenance Preferences</legend
 			>
 			<div class="mb-4">
 				<label
@@ -512,7 +512,7 @@
 
 		<!-- Aquascaping Preferences Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Aquascaping Preferences</legend
+			<legend class="text-lg font-semibold text-teal-800 px-2">Aquascaping Preferences</legend
 			>
 			<div class="flex items-center mb-4">
 				<div class="flex items-center space-x-2">
@@ -581,7 +581,7 @@
 
 		<!-- Location & Budget Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
-			<legend class="text-lg font-semibold text-teal-700 px-2">Location & Budget</legend>
+			<legend class="text-lg font-semibold text-teal-800 px-2">Location & Budget</legend>
 			<div class="mb-4">
 				<label for="country" class="block text-sm font-medium text-gray-700 mb-2"
 					>Country</label
