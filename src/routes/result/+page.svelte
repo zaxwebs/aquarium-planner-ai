@@ -28,7 +28,7 @@
 	<title>AquaPlanner Results</title>
 </svelte:head>
 
-<div class="max-w-3xl mx-auto">
+<div class="max-w-2xl mx-auto">
 	<div class="text-center flex flex-col items-center mb-12">
 		<h1 class="text-5xl text-center text-teal-800 mb-4 font-serif italic">
 			<GradientText>Your Aquarium Plan</GradientText>
@@ -41,7 +41,7 @@
 
 	<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
 		<h2 class="text-xl font-medium text-teal-800 mb-4">Tank Overview</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
 			<div class="border p-4 rounded">
 				<p class="font-semibold text-teal-800 mb-3">Tank Size</p>
 				<div>{baseData.volume} {volumeUnit}</div>
@@ -59,7 +59,7 @@
 
 	<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
 		<h2 class="text-xl font-medium text-teal-800 mb-4">Water Parameters</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
 			<div class="border p-4 rounded">
 				<div class="flex justify-between items-center mb-3">
 					<p class="font-semibold text-teal-800 flex-1">pH</p>
