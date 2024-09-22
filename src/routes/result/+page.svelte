@@ -10,10 +10,13 @@
 	// Mock data (in a real scenario, this would come from the API)
 	import demoData from '$lib/data/demo'
 	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
+	import { base } from '$app/paths'
 
 	export let data
 
 	const baseData = data.base
+
+	$: console.log(baseData)
 
 	let volumeUnit = findOption(baseData.volumeUnit, units.volume).label
 	let filtrationRateUnit = findOption(baseData.filtrationRateUnit, units.water_flow).label
@@ -48,7 +51,7 @@
 				</div>
 				<div class="border p-4 rounded">
 					<p class="font-semibold text-teal-700 mb-3">Type</p>
-					<p>{demoData.waterType}</p>
+					<p class="capitalize">{baseData.waterType}</p>
 				</div>
 			</div>
 		</div>
