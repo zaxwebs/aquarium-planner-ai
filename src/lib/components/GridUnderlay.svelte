@@ -1,4 +1,4 @@
-<div class="absolute inset-0 grid-pattern"></div>
+<div class="absolute inset-0 grid-pattern pointer-events-none"></div>
 
 <style>
 	.grid-pattern {
