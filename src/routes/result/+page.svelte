@@ -33,7 +33,7 @@
 		<h1 class="text-5xl text-center text-teal-800 mb-4 font-serif italic">
 			<GradientText>Your Aquarium Plan</GradientText>
 		</h1>
-		<p class="max-w-lg">
+		<p class="max-w-lg text-slate-600">
 			We've crafted a tailored plan for your aquatic ecosystem based on your preferences.
 			Explore the details below.
 		</p>
@@ -53,27 +53,6 @@
 			<div class="border p-4 rounded">
 				<p class="font-semibold text-teal-800 mb-3">Type</p>
 				<p class="capitalize">{baseData.waterType}</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
-		<h2 class="text-xl font-medium text-teal-800 mb-4">Water Parameters</h2>
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-			<div class="border p-4 rounded">
-				<div class="flex justify-between items-center mb-3">
-					<p class="font-semibold text-teal-800 flex-1">pH</p>
-					<PHDialog />
-				</div>
-				<p>{demoData.waterParameters.pH}</p>
-			</div>
-			<div class="border p-4 rounded">
-				<p class="font-semibold text-teal-800 mb-3">Temperature</p>
-				<p>{demoData.waterParameters.temperature}</p>
-			</div>
-			<div class="border p-4 rounded">
-				<p class="font-semibold text-teal-800 mb-3">Hardness</p>
-				<p>{demoData.waterParameters.hardness}</p>
 			</div>
 		</div>
 	</div>
@@ -116,6 +95,27 @@
 				{#each demoData.plantRecommendations as plant}
 					<PlantCard {plant} />
 				{/each}
+			</div>
+		</div>
+	</div>
+
+	<div class="mb-6 p-6 bg-white rounded-lg border border-gray-200">
+		<h2 class="text-xl font-medium text-teal-800 mb-4">Water Parameters</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+			<div class="border p-4 rounded">
+				<div class="flex justify-between items-center mb-3">
+					<p class="font-semibold text-teal-800 flex-1">pH</p>
+					<PHDialog />
+				</div>
+				<p>{demoData.waterParameters.pH}</p>
+			</div>
+			<div class="border p-4 rounded">
+				<p class="font-semibold text-teal-800 mb-3">Temperature</p>
+				<p>{demoData.waterParameters.temperature}</p>
+			</div>
+			<div class="border p-4 rounded">
+				<p class="font-semibold text-teal-800 mb-3">Hardness</p>
+				<p>{demoData.waterParameters.hardness}</p>
 			</div>
 		</div>
 	</div>

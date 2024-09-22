@@ -106,7 +106,7 @@
 		</h1>
 	</div>
 
-	<p class="mb-12">
+	<p class="mb-12 text-slate-600">
 		Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it easy
 		to plan a great tank setup and the right aquatic buddies.
 	</p>
