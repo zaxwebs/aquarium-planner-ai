@@ -1,49 +1,31 @@
-import { json } from '@sveltejs/kit';
-
-import { createOpenAI } from '@ai-sdk/openai';
-import { StreamData, streamText, generateText } from 'ai';
-
+import { json } from '@sveltejs/kit'
 import { env } from '$env/dynamic/private';
 
-// You may want to replace the above with a static private env variable
-// for dead-code elimination and build-time type-checking:
-// import { OPENAI_API_KEY } from '$env/static/private'
+import { generateObject } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
+
+import { z } from 'zod';
 
 
-// Create an OpenAI Provider instance
 const openai = createOpenAI({
 	apiKey: env.OPENAI_API_KEY ?? '',
 });
 
-// export const POST = (async ({ request }) => {
-// 	// Extract the `prompt` from the body of the request
-// 	const { prompt } = await request.json();
+export const GET = async () => {
+	console.log("Hello from the API")
 
-// 	// optional: use stream data
-// 	const data = new StreamData();
-// 	data.append({ test: 'value' });
-
-// 	// Ask OpenAI for a streaming chat completion given the prompt
-// 	const result = await streamText({
-// 		model: openai('gpt-4o-mini'),
-// 		prompt,
-// 		onFinish() {
-// 			data.close();
-// 		},
-// 	});
-
-// 	// Respond with the stream
-// 	return result.toDataStreamResponse({ data });
-// })
-
-export const GET = (async ({ request }) => {
-	const { text } = await generateText({
+	const { object } = await generateObject({
 		model: openai('gpt-4o-mini'),
-		prompt: 'Hello.',
+		schema: z.object({
+			recipe: z.object({
+				name: z.string(),
+				items: z.array(z.string()),
+			}),
+		}),
+		prompt: 'Generate a list of 5 elements.',
 	});
 
-	return json({
-		success: true,
-		data: text
-	});
-})
+	console.log(object)
+
+	return json()
+}
