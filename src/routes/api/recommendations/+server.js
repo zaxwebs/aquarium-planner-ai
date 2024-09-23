@@ -20,7 +20,8 @@ const fishSchema = baseSchema.extend({
 const fishPlantSchema = z.object({
 	fish: z.array(fishSchema),  // Array of fish objects
 	plants: z.array(baseSchema),  // Array of plant objects
-});
+	totalFish: z.number().positive(),
+}).describe('Ideal and harmonic stocking recommendations for an aquarium tank.');
 
 
 const openai = createOpenAI({
@@ -31,12 +32,13 @@ export const POST = async ({ request }) => {
 
 	const { preferences } = await request.json();
 	const preferencesString = JSON.stringify(preferences);
-	console.log(preferencesString)
+
+	const prompt = `First think deeply and then recommend based on: ${preferencesString}.`;
 
 	const result = await generateObject({
 		model: openai('gpt-4o-mini'),
 		schema: fishPlantSchema,
-		prompt: `list 2-3 based on: ${preferencesString}`,
+		prompt,
 	});
 
 	console.log(result.object)

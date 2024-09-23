@@ -19,7 +19,7 @@
 
 	export let data
 
-	const demoMode = true
+	const demoMode = false
 
 	const requestData = data.request
 	const baseData = data.base
