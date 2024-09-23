@@ -1,7 +1,7 @@
 import { json } from '@sveltejs/kit'
 import { env } from '$env/dynamic/private';
 
-import { generateObject } from 'ai';
+import { streamObject } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 
 import { z } from 'zod';
@@ -14,7 +14,7 @@ const openai = createOpenAI({
 export const GET = async () => {
 	console.log("Hello from the API")
 
-	const { object } = await generateObject({
+	const { partialObjectStream } = await streamObject({
 		model: openai('gpt-4o-mini'),
 		schema: z.object({
 			recipe: z.object({
@@ -25,7 +25,10 @@ export const GET = async () => {
 		prompt: 'Generate a list of 5 elements.',
 	});
 
-	console.log(object)
+	for await (const partialObject of partialObjectStream) {
+		console.clear();
+		console.log(partialObject);
+	}
 
 	return json()
 }
