@@ -4,10 +4,8 @@ export default {
 			name: 'Neon Tetra',
 			scientificName: 'Paracheirodon innesi',
 			family: 'Characidae',
-			recommendation: {
-				quantity: 5,
-				reason: 'Colorful schooling fish that adds movement to the mid-level of the tank.',
-			},
+			quantity: 5,
+			recommendationReason: 'Colorful schooling fish that adds movement to the mid-level of the tank.',
 			size: '1-1.5 inches',
 			temperament: 'Peaceful',
 			environment: {
@@ -26,10 +24,8 @@ export default {
 			name: 'Corydoras Catfish',
 			scientificName: 'Corydoras sp.',
 			family: 'Callichthyidae',
-			recommendation: {
-				quantity: 3,
-				reason: 'Bottom-dwelling scavengers that help keep the substrate clean.',
-			},
+			quantity: 3,
+			recommendationReason: 'Bottom-dwelling scavengers that help keep the substrate clean.',
 			size: '2-2.5 inches',
 			temperament: 'Peaceful',
 			environment: {
@@ -48,10 +44,8 @@ export default {
 			name: 'Angelfish',
 			scientificName: 'Pterophyllum scalare',
 			family: 'Cichlidae',
-			recommendation: {
-				quantity: 1,
-				reason: 'Centerpiece fish that adds vertical interest to the aquarium.',
-			},
+			quantity: 1,
+			recommendationReason: 'Centerpiece fish that adds vertical interest to the aquarium.',
 			size: '6 inches',
 			temperament: 'Semi-aggressive',
 			environment: {
@@ -70,10 +64,8 @@ export default {
 			name: 'German Blue Ram',
 			scientificName: 'Mikrogeophagus ramirezi',
 			family: 'Cichlidae',
-			recommendation: {
-				quantity: 2,
-				reason: 'Colorful dwarf cichlids that add personality to the lower levels of the tank.',
-			},
+			quantity: 2,
+			recommendationReason: 'Colorful dwarf cichlids that add personality to the lower levels of the tank.',
 			size: '2-3 inches',
 			temperament: 'Peaceful',
 			environment: {
@@ -94,7 +86,7 @@ export default {
 		temperature: '75°F - 80°F',
 		hardness: 'Soft to Medium',
 	},
-	plantRecommendations: [
+	recommendedPlants: [
 		{
 			name: 'Amazon Sword',
 			scientificName: 'Echinodorus grisebachii',

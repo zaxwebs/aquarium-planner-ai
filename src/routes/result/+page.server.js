@@ -27,5 +27,5 @@ export const load = async ({ cookies }) => {
 
 	// Return data
 
-	return { base: processedData };
+	return { request: casedData, base: processedData };
 }

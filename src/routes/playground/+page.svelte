@@ -68,7 +68,7 @@
 	$: console.log(output)
 </script> -->
 
-<script>
+<!-- <script>
 	import { onMount } from 'svelte'
 	import { getPlantDetails } from '$lib/utils/api'
 
@@ -83,4 +83,4 @@
 	})
 
 	$: console.log(output)
-</script>
+</script> -->

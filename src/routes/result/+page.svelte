@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte'
+	import { getRecommendations } from '$lib/utils/api'
 	import GradientText from './../../lib/components/GradientText.svelte'
 	import SectionHeader from './../../lib/components/SectionHeader.svelte'
 	import { Button } from '$lib/components/ui/button'
@@ -16,12 +18,23 @@
 
 	export let data
 
+	const requestData = data.request
 	const baseData = data.base
-
-	$: console.log(baseData)
 
 	let volumeUnit = findOption(baseData.volumeUnit, units.volume).label
 	let filtrationRateUnit = findOption(baseData.filtrationRateUnit, units.water_flow).label
+
+	// AI logic
+	let recommendations = {
+		fish: [],
+		plants: [],
+	}
+
+	$: console.log(recommendations)
+
+	onMount(async () => {
+		// recommendations = await getRecommendations(requestData)
+	})
 </script>
 
 <svelte:head>
@@ -92,7 +105,7 @@
 		</SectionHeader>
 		<div class="p-6 bg-white">
 			<div class="grid grid-cols-1 gap-4">
-				{#each demoData.plantRecommendations as plant}
+				{#each demoData.recommendedPlants as plant}
 					<PlantCard {plant} />
 				{/each}
 			</div>
