@@ -6,12 +6,13 @@ import { createOpenAI } from '@ai-sdk/openai';
 
 import { z } from 'zod';
 
+// This varies from demo data as quantity is skipped.
+
 const schema = z.object({
-	name: z.string(),
+	name: z.string().describe('Common name of the fish.'),
 	scientificName: z.string(),
 	family: z.string(),
 	recommendation: z.object({
-		quantity: z.number(),
 		reason: z.string(),
 	}),
 	size: z.string(),
@@ -42,14 +43,12 @@ const openai = createOpenAI({
 
 export const POST = async ({ request }) => {
 
-	const { preferences } = await request.json();
-	const preferencesString = JSON.stringify(preferences);
-	console.log(preferencesString)
+	const { scientificName } = await request.json();
 
 	const result = await generateObject({
 		model: openai('gpt-4o-mini'),
 		schema,
-		prompt: `Fill in the aquarium fish details.`,
+		prompt: `Return aquarium fish details for: ${scientificName}`,
 	});
 
 	console.log(result.object)
