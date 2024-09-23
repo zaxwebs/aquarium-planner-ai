@@ -12,7 +12,7 @@ const schema = z.object({
 	size: z.enum(['Small', 'Medium', 'Large']),
 	care: z.enum(['Easy', 'Moderate', 'Difficult']),
 	placement: z.enum(['Foreground', 'Midground', 'Background']),
-	reason: z.string(),
+	recommendationReason: z.string().describe('A very short reason for recommending this.'),
 	lightRequirement: z.enum(['Low', 'Medium', 'High']),
 	co2Requirement: z.enum(['Low', 'Medium', 'High']),
 });

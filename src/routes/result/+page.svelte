@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte'
-	import { getRecommendations } from '$lib/utils/api'
+	import { getRecommendations, getFishDetails, getPlantDetails } from '$lib/utils/api'
 	import GradientText from './../../lib/components/GradientText.svelte'
 	import SectionHeader from './../../lib/components/SectionHeader.svelte'
 	import { Button } from '$lib/components/ui/button'
@@ -15,8 +15,11 @@
 	import demoData from '$lib/data/demo'
 	import GridUnderlay from '$lib/components/GridUnderlay.svelte'
 	import { base } from '$app/paths'
+	import demo from '$lib/data/demo'
 
 	export let data
+
+	const demoMode = true
 
 	const requestData = data.request
 	const baseData = data.base
@@ -24,16 +27,43 @@
 	let volumeUnit = findOption(baseData.volumeUnit, units.volume).label
 	let filtrationRateUnit = findOption(baseData.filtrationRateUnit, units.water_flow).label
 
+	let recommendations = demoMode
+		? {
+				fish: demoData.recommendedFish,
+				plants: demoData.recommendedPlants,
+			}
+		: {
+				fish: [],
+				plants: [],
+			}
+
 	// AI logic
-	let recommendations = {
-		fish: [],
-		plants: [],
-	}
 
 	$: console.log(recommendations)
 
 	onMount(async () => {
-		// recommendations = await getRecommendations(requestData)
+		if (!demoMode) {
+			// Get recommendations
+			recommendations = await getRecommendations(requestData)
+
+			// Create an array of promises for fetching fish details
+			const fishDetailsPromises = recommendations.fish.map(async (fish) => {
+				const details = await getFishDetails(fish.scientificName)
+				return { ...fish, ...details } // Merge fish and details
+			})
+
+			// Wait for all promises to resolve in parallel and preserve order
+			recommendations.fish = await Promise.all(fishDetailsPromises)
+
+			// Create an array of promises for fetching plant details
+			const plantDetailsPromises = recommendations.plants.map(async (plant) => {
+				const details = await getPlantDetails(plant.scientificName)
+				return { ...plant, ...details } // Merge plant and details
+			})
+
+			// Wait for all promises to resolve in parallel and preserve order
+			recommendations.plants = await Promise.all(plantDetailsPromises)
+		}
 	})
 </script>
 
@@ -84,7 +114,7 @@
 		</SectionHeader>
 		<div class="p-6 bg-white">
 			<div class="grid grid-cols-1 gap-4">
-				{#each demoData.recommendedFishes as fish}
+				{#each recommendations.fish as fish}
 					<FishCard {fish} />
 				{/each}
 			</div>
@@ -105,7 +135,7 @@
 		</SectionHeader>
 		<div class="p-6 bg-white">
 			<div class="grid grid-cols-1 gap-4">
-				{#each demoData.recommendedPlants as plant}
+				{#each recommendations.plants as plant}
 					<PlantCard {plant} />
 				{/each}
 			</div>

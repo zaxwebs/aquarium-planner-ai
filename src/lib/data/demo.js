@@ -1,5 +1,5 @@
 export default {
-	recommendedFishes: [
+	recommendedFish: [
 		{
 			name: 'Neon Tetra',
 			scientificName: 'Paracheirodon innesi',
@@ -93,7 +93,7 @@ export default {
 			size: 'Large',
 			care: 'Easy',
 			placement: 'Background',
-			reason: 'Provides lush, broad leaves for a natural backdrop.',
+			recommendationReason: 'Provides lush, broad leaves for a natural backdrop.',
 			lightRequirement: 'Medium',
 			co2Requirement: 'Low',
 		},
@@ -103,7 +103,7 @@ export default {
 			size: 'Medium',
 			care: 'Easy',
 			placement: 'Mid-ground',
-			reason: 'Hardy plant that can be attached to decorations or left floating.',
+			recommendationReason: 'Hardy plant that can be attached to decorations or left floating.',
 			lightRequirement: 'Low',
 			co2Requirement: 'Low',
 		},
@@ -113,7 +113,7 @@ export default {
 			size: 'Small to Medium',
 			care: 'Easy',
 			placement: 'Foreground to Mid-ground',
-			reason: 'Slow-growing, low-light plant perfect for attaching to driftwood or rocks.',
+			recommendationReason: 'Slow-growing, low-light plant perfect for attaching to driftwood or rocks.',
 			lightRequirement: 'Low',
 			co2Requirement: 'Low',
 		},

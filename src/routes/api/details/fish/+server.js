@@ -12,7 +12,7 @@ const schema = z.object({
 	name: z.string().describe('Common name of the fish.'),
 	scientificName: z.string(),
 	family: z.string(),
-	recommendationReason: z.string(),
+	recommendationReason: z.string().describe('A very short reason for recommending this.'),
 	size: z.string(),
 	temperament: z.string(),
 	environment: z.object({

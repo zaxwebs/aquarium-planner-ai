@@ -1,4 +1,5 @@
 <script>
+	import SkeletonText from '$lib/components/SkeletonText.svelte'
 	export let plant
 </script>
 
@@ -22,30 +23,52 @@
 	<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 		<div class="flex flex-col">
 			<span class="font-semibold text-gray-700 text-sm">Size</span>
-			<span class="text-gray-600">{plant.size}</span>
+			{#if !plant.size}
+				<SkeletonText />
+			{:else}
+				<span class="text-gray-600">{plant.size}</span>
+			{/if}
 		</div>
 		<div class="flex flex-col">
 			<span class="font-semibold text-gray-700 text-sm">Care</span>
-			<span class="text-gray-600">{plant.care}</span>
+			{#if !plant.care}
+				<SkeletonText />
+			{:else}
+				<span class="text-gray-600">{plant.care}</span>
+			{/if}
 		</div>
 		<div class="flex flex-col">
 			<span class="font-semibold text-gray-700 text-sm">Light</span>
-			<span class="text-gray-600">{plant.lightRequirement}</span>
+			{#if !plant.lightRequirement}
+				<SkeletonText />
+			{:else}
+				<span class="text-gray-600">{plant.lightRequirement}</span>
+			{/if}
 		</div>
 		<div class="flex flex-col">
 			<span class="font-semibold text-gray-700 text-sm">CO2</span>
-			<span class="text-gray-600">{plant.co2Requirement}</span>
+			{#if !plant.co2Requirement}
+				<SkeletonText />
+			{:else}
+				<span class="text-gray-600">{plant.co2Requirement}</span>
+			{/if}
 		</div>
 		<div class="flex flex-col">
 			<span class="font-semibold text-gray-700 text-sm">Placement</span>
-			<span class="text-gray-600">{plant.placement}</span>
+			{#if !plant.placement}
+				<SkeletonText />
+			{:else}
+				<span class="text-gray-600">{plant.placement}</span>
+			{/if}
 		</div>
 	</div>
 
 	<div class="mt-4">
 		<span class="font-semibold text-gray-700 text-sm">Recommendation Reason</span>
-		<p class="text-gray-600 mt-1">
-			{plant.reason}
-		</p>
+		{#if !plant.recommendationReason}
+			<SkeletonText />
+		{:else}
+			<div class="text-gray-600">{plant.recommendationReason}</div>
+		{/if}
 	</div>
 </div>
