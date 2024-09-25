@@ -226,7 +226,7 @@
 				</Tabs.Content>
 				<Tabs.Content value="volume">
 					<div class="grid md:grid-cols-2 gap-4">
-						<div class="mb-4">
+						<div>
 							<label
 								for="volume-unit"
 								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
@@ -248,7 +248,7 @@
 								<Select.Input name="volume-unit" id="volume-unit" />
 							</Select.Root>
 						</div>
-						<div class="mb-4">
+						<div>
 							<label for="volume" class="block text-sm font-medium text-gray-700 mb-2"
 								>Volume</label
 							>
@@ -341,7 +341,7 @@
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 			<legend class="text-lg font-semibold text-teal-800 px-2">Water Chemistry</legend>
 			<div class="grid md:grid-cols-2 gap-4">
-				<div class="mb-4">
+				<div>
 					<label for="water-type" class="block text-sm font-medium text-gray-700 mb-2"
 						>Water Type</label
 					>
@@ -362,7 +362,7 @@
 						<Select.Input name="water-type" id="water-type" />
 					</Select.Root>
 				</div>
-				<div class="mb-4">
+				<div>
 					<label for="water-source" class="block text-sm font-medium text-gray-700 mb-2"
 						>Water Source</label
 					>
@@ -383,7 +383,7 @@
 						<Select.Input name="water-source" id="water-source" />
 					</Select.Root>
 				</div>
-				<div class="mb-4">
+				<div>
 					<label for="target-ph" class="block text-sm font-medium text-gray-700 mb-2"
 						>Target pH</label
 					>
@@ -396,7 +396,7 @@
 						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
-				<div class="mb-4">
+				<div>
 					<label for="water-hardness" class="block text-sm font-medium text-gray-700 mb-2"
 						>Hardness</label
 					>
@@ -542,7 +542,7 @@
 				</div>
 			</div>
 			<div class="grid md:grid-cols-2 gap-4">
-				<div class="mb-4">
+				<div>
 					<label
 						for="plant-care-level"
 						class="block text-sm font-medium text-gray-700 mb-2">Care Level</label
@@ -564,7 +564,7 @@
 						<Select.Input name="plant-care-level" id="plant-care-level" />
 					</Select.Root>
 				</div>
-				<div class="mb-4">
+				<div>
 					<label for="substrate-type" class="block text-sm font-medium text-gray-700 mb-2"
 						>Substrate Type</label
 					>
@@ -592,7 +592,7 @@
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 			<legend class="text-lg font-semibold text-teal-800 px-2">Location & Budget</legend>
 			<div class="grid md:grid-cols-2 gap-4">
-				<div class="mb-4">
+				<div>
 					<label for="country" class="block text-sm font-medium text-gray-700 mb-2"
 						>Country</label
 					>
@@ -604,7 +604,7 @@
 						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
-				<div class="mb-4">
+				<div>
 					<label for="region" class="block text-sm font-medium text-gray-700 mb-2"
 						>Region</label
 					>
@@ -616,7 +616,7 @@
 						class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
 					/>
 				</div>
-				<div class="mb-4">
+				<div>
 					<label for="budget" class="block text-sm font-medium text-gray-700 mb-2"
 						>Budget</label
 					>
