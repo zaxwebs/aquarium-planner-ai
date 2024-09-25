@@ -423,7 +423,7 @@
 		<!-- Equipment Preferences Fieldset -->
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 			<legend class="text-lg font-semibold text-teal-800 px-2">Equipment Preferences</legend>
-			<div class="mb-4">
+			<div class="mb-6">
 				<label for="filter-type" class="block text-sm font-medium text-gray-700 mb-2"
 					>Filter Type</label
 				>
@@ -444,45 +444,47 @@
 					<Select.Input name="filter-type" id="filter-type" />
 				</Select.Root>
 			</div>
-			<div class="flex items-center mb-4">
-				<div class="flex items-center space-x-2">
-					<input type="hidden" name="aquarium-heater" value="false" />
-					<Input
-						type="checkbox"
-						id="aquarium-heater"
-						name="aquarium-heater"
-						bind:checked={aquariumHeater}
-						value="true"
-						class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
-					/>
-					<Label
-						id="aquarium-heater-label"
-						for="aquarium-heater"
-						class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-					>
-						Aquarium Heater
-					</Label>
+			<div class="grid md:grid-cols-2 gap-4">
+				<div class="flex items-center">
+					<div class="flex items-center space-x-2">
+						<input type="hidden" name="aquarium-heater" value="false" />
+						<Input
+							type="checkbox"
+							id="aquarium-heater"
+							name="aquarium-heater"
+							bind:checked={aquariumHeater}
+							value="true"
+							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
+						/>
+						<Label
+							id="aquarium-heater-label"
+							for="aquarium-heater"
+							class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+						>
+							Aquarium Heater
+						</Label>
+					</div>
 				</div>
-			</div>
 
-			<div class="flex items-center mb-4">
-				<div class="flex items-center space-x-2">
-					<input type="hidden" name="co2-system" value="false" />
-					<Input
-						type="checkbox"
-						id="co2-system"
-						name="co2-system"
-						value="true"
-						bind:checked={co2System}
-						class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
-					/>
-					<Label
-						for="co2-system"
-						class="text-sm font-medium leading-none 
-							peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-					>
-						CO2 System
-					</Label>
+				<div class="flex items-center">
+					<div class="flex items-center space-x-2">
+						<input type="hidden" name="co2-system" value="false" />
+						<Input
+							type="checkbox"
+							id="co2-system"
+							name="co2-system"
+							value="true"
+							bind:checked={co2System}
+							class="h-4 w-4 rounded border-gray-200 text-teal-600 focus:ring-teal-500"
+						/>
+						<Label
+							for="co2-system"
+							class="text-sm font-medium leading-none 
+								peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+						>
+							CO2 System
+						</Label>
+					</div>
 				</div>
 			</div>
 		</fieldset>
@@ -520,7 +522,7 @@
 		<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 			<legend class="text-lg font-semibold text-teal-800 px-2">Aquascaping Preferences</legend
 			>
-			<div class="flex items-center mb-4">
+			<div class="flex items-center mb-6">
 				<div class="flex items-center space-x-2">
 					<input type="hidden" name="live-plants" value="false" />
 					<Input
