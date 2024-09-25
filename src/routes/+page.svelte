@@ -146,7 +146,7 @@
 						</div>
 						<div class="mb-4">
 							<label for="length" class="block text-sm font-medium text-gray-700 mb-2"
-								>Length</label
+								>Length <span class="text-pink-600">*</span></label
 							>
 							<Input
 								type="number"
@@ -159,7 +159,7 @@
 						</div>
 						<div class="mb-4">
 							<label for="width" class="block text-sm font-medium text-gray-700 mb-2"
-								>Width</label
+								>Width <span class="text-pink-600">*</span></label
 							>
 							<Input
 								type="number"
@@ -172,7 +172,7 @@
 						</div>
 						<div class="mb-4">
 							<label for="height" class="block text-sm font-medium text-gray-700 mb-2"
-								>Height</label
+								>Height <span class="text-pink-600">*</span></label
 							>
 							<Input
 								type="number"
@@ -224,7 +224,7 @@
 								<label
 									for="volume"
 									class="block text-sm font-medium text-gray-700 mb-2"
-									>Volume</label
+									>Volume <span class="text-pink-600">*</span></label
 								>
 								<Input
 									type="number"
@@ -606,57 +606,31 @@
 				</div>
 			</fieldset>
 
-			<!-- Location & Budget Fieldset -->
+			<!-- Budget Fieldset -->
 			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-medium text-teal-800 px-4 py-1 bg-white rounded"
-					>Location & Budget</legend
+					>Budget</legend
 				>
-				<div class="grid md:grid-cols-2 gap-4">
-					<div>
-						<label for="country" class="block text-sm font-medium text-gray-700 mb-2"
-							>Country</label
-						>
-						<Input
-							type="text"
-							id="country"
-							name="country"
-							autocomplete="on"
-							class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-						/>
-					</div>
-					<div>
-						<label for="region" class="block text-sm font-medium text-gray-700 mb-2"
-							>Region</label
-						>
-						<Input
-							type="text"
-							id="region"
-							name="region"
-							autocomplete="on"
-							class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-						/>
-					</div>
-					<div>
-						<label for="budget" class="block text-sm font-medium text-gray-700 mb-2"
-							>Budget</label
-						>
-						<Select.Root
-							selected={selectedBudget}
-							onSelectedChange={(v) => {
-								selectedBudget = v
-							}}
-						>
-							<Select.Trigger>
-								<Select.Value placeholder="Budget" />
-							</Select.Trigger>
-							<Select.Content>
-								{#each budgets as budget}
-									<Select.Item value={budget.value}>{budget.label}</Select.Item>
-								{/each}
-							</Select.Content>
-							<Select.Input name="budget" id="budget" />
-						</Select.Root>
-					</div>
+				<div>
+					<label for="budget" class="block text-sm font-medium text-gray-700 mb-2"
+						>Budget</label
+					>
+					<Select.Root
+						selected={selectedBudget}
+						onSelectedChange={(v) => {
+							selectedBudget = v
+						}}
+					>
+						<Select.Trigger>
+							<Select.Value placeholder="Budget" />
+						</Select.Trigger>
+						<Select.Content>
+							{#each budgets as budget}
+								<Select.Item value={budget.value}>{budget.label}</Select.Item>
+							{/each}
+						</Select.Content>
+						<Select.Input name="budget" id="budget" />
+					</Select.Root>
 				</div>
 			</fieldset>
 
@@ -673,7 +647,26 @@
 					type="submit"
 					class="bg-teal-600 hover:bg-teal-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 				>
-					Plan My Aquarium
+					<div class="flex gap-2 items-center">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="size-5"
+							><path
+								d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+							/><path d="M20 3v4" /><path d="M22 5h-4" /><path d="M4 17v2" /><path
+								d="M5 18H3"
+							/></svg
+						>
+						Plan My Aquarium
+					</div>
 				</button>
 			</div>
 		</form>

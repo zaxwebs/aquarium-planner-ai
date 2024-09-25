@@ -30,8 +30,6 @@ const commonSchema = z.object({
 	'live-plants': z.string().optional(),
 	'plant-care-level': z.string(),
 	'substrate-type': z.string(),
-	'country': z.string(),
-	'region': z.string(),
 	'budget': z.string(),
 });
 
