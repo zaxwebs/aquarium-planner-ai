@@ -88,6 +88,10 @@
 	const handleVolumeModeChange = (value) => {
 		volumeMode = value
 	}
+
+	const handleSubmit = () => {
+		localStorage.clear()
+	}
 </script>
 
 <svelte:head>
@@ -109,7 +113,7 @@
 
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-2xl mx-auto">
-		<form method="post" action="/" use:enhance>
+		<form method="post" action="/" use:enhance on:submit|preventDefault={handleSubmit}>
 			<!-- Tank Dimensions Fieldset -->
 			<fieldset class="border border-gray-200 p-4 rounded-md mb-6 bg-white md:p-6">
 				<legend class="text-lg font-medium text-teal-800 px-4 py-1 bg-white rounded"
