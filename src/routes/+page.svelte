@@ -106,18 +106,10 @@
 		</h1>
 	</div>
 
-	<p class="mb-12 text-slate-600">
+	<p class="mb-8 text-slate-600">
 		Whether you're just getting started or already a fish-keeping pro, AquaPlanner makes it easy
 		to plan a great tank setup and the right aquatic buddies.
 	</p>
-
-	{#if form?.errors}
-		<ul class="text-red-500 mb-12 p-4 bg-red-100 rounded-md">
-			{#each form.errors as error}
-				<li>{error.message}</li>
-			{/each}
-		</ul>
-	{/if}
 
 	<form method="post" action="/" use:enhance>
 		<!-- Tank Dimensions Fieldset -->
@@ -125,7 +117,7 @@
 			<legend class="text-lg font-semibold text-teal-800 px-2">Tank Details</legend>
 			<input type="hidden" name="volume-mode" bind:value={volumeMode} />
 			<Tabs.Root class="mb-4" value="volume" onValueChange={handleVolumeModeChange}>
-				<Tabs.List class="grid w-full grid-cols-2">
+				<Tabs.List class="grid w-full grid-cols-2 mb-6">
 					<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
 					<Tabs.Trigger value="dimensions">Dimensions</Tabs.Trigger>
 				</Tabs.List>
@@ -227,6 +219,18 @@
 				<Tabs.Content value="volume">
 					<div class="grid md:grid-cols-2 gap-4">
 						<div>
+							<label for="volume" class="block text-sm font-medium text-gray-700 mb-2"
+								>Volume</label
+							>
+							<Input
+								type="number"
+								id="volume"
+								name="volume"
+								step="any"
+								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+							/>
+						</div>
+						<div>
 							<label
 								for="volume-unit"
 								class="block text-sm font-medium text-gray-700 mb-2">Unit</label
@@ -247,18 +251,6 @@
 								</Select.Content>
 								<Select.Input name="volume-unit" id="volume-unit" />
 							</Select.Root>
-						</div>
-						<div>
-							<label for="volume" class="block text-sm font-medium text-gray-700 mb-2"
-								>Volume</label
-							>
-							<Input
-								type="number"
-								id="volume"
-								name="volume"
-								step="any"
-								class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-							/>
 						</div>
 					</div>
 				</Tabs.Content>
@@ -641,6 +633,14 @@
 				</div>
 			</div>
 		</fieldset>
+
+		{#if form?.errors}
+			<ul class="text-red-500 mb-12 p-4 bg-red-100 rounded-md">
+				{#each form.errors as error}
+					<li>{error.message}</li>
+				{/each}
+			</ul>
+		{/if}
 
 		<div class="flex items-center justify-center">
 			<button
