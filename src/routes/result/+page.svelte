@@ -38,32 +38,40 @@
 			}
 
 	// AI logic
+	const handleRecommendations = async () => {
+		if (!demoMode) {
+			if (localStorage.getItem('recommendations')) {
+				recommendations = JSON.parse(localStorage.getItem('recommendations'))
+			} else {
+				// Get recommendations
+				recommendations = await getRecommendations(requestData)
 
-	$: console.log(recommendations)
+				// Create an array of promises for fetching fish details
+				const fishDetailsPromises = recommendations.fish.map(async (fish) => {
+					const details = await getFishDetails(fish.scientificName)
+					return { ...fish, ...details } // Merge fish and details
+				})
+
+				// Create an array of promises for fetching plant details
+				const plantDetailsPromises = recommendations.plants.map(async (plant) => {
+					const details = await getPlantDetails(plant.scientificName)
+					return { ...plant, ...details } // Merge plant and details
+				})
+
+				// Wait for all promises to resolve in parallel and preserve order
+				recommendations.fish = await Promise.all(fishDetailsPromises)
+
+				// Wait for all promises to resolve in parallel and preserve order
+				recommendations.plants = await Promise.all(plantDetailsPromises)
+
+				// Store recommendations in local storage
+				localStorage.setItem('recommendations', JSON.stringify(recommendations))
+			}
+		}
+	}
 
 	onMount(async () => {
-		if (!demoMode) {
-			// Get recommendations
-			recommendations = await getRecommendations(requestData)
-
-			// Create an array of promises for fetching fish details
-			const fishDetailsPromises = recommendations.fish.map(async (fish) => {
-				const details = await getFishDetails(fish.scientificName)
-				return { ...fish, ...details } // Merge fish and details
-			})
-
-			// Wait for all promises to resolve in parallel and preserve order
-			recommendations.fish = await Promise.all(fishDetailsPromises)
-
-			// Create an array of promises for fetching plant details
-			const plantDetailsPromises = recommendations.plants.map(async (plant) => {
-				const details = await getPlantDetails(plant.scientificName)
-				return { ...plant, ...details } // Merge plant and details
-			})
-
-			// Wait for all promises to resolve in parallel and preserve order
-			recommendations.plants = await Promise.all(plantDetailsPromises)
-		}
+		handleRecommendations()
 	})
 </script>
 
